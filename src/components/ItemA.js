@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   box-sizing: border-box;
   display: inline-block;
   background-color: ${props => props.isSelected && 'rgb(182,238,238)'};

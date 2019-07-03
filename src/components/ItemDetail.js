@@ -7,7 +7,7 @@ const ContentDiv = styled.div`
 `;
 
 const Header = styled.div`
-  height: 60%;
+  height: 70%;
   background-color: rgb(214, 215, 214);
   opacity: 0.8;
   display: flex;
