@@ -1,94 +1,76 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Content from '../components/ContentA';
+import ItemA from '../components/ItemA';
 import useKeyPress from '../Hooks/useKeyPress';
 
 const TypeContainer = styled.div`
   border: 1px solid black;
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 30px 5px;
+  border-radius: 10px;
 `;
 
-const ContentsContainer = styled.div`
+const ItemsContainer = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   margin: 20px;
 `;
 
-const TypeA = props => {
-  // const divEl = useRef(null);
+const Title = styled.div`
+  font-size: 2.5rem;
+  font-weight: 200;
+  text-align: left;
+  padding-left: 3rem;
+  > span {
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+  }
+`;
 
-  // useEffect(() => {
-  //   console.log('parent', divEl);
-  // });
-  const [number, changeNumber] = useState(0);
-
-  const initialList = [];
+const TypeA = () => {
+  const itemList = [];
   for (let i = 0; i < 20; i++) {
-    initialList.push('');
+    itemList.push('');
   }
 
-  const [lists, changeListCount] = useState(initialList);
-
-  const [selectedNum, changeSelectedNum] = useState(0);
-
-  const [isPressArrow, setIsPressArrow] = useState(-1);
-
-  const inputChangeHandler = e => {
-    const { value } = e.target;
-    changeNumber(value);
-  };
-
-  const applyNumber = () => {
-    let l = [];
-    for (let i = 0; i < number; i++) {
-      l.push('');
-    }
-    changeListCount(l);
-  };
-
-  const clickContent = num => {
-    changeSelectedNum(num);
-  };
+  const [selectedNum, setSelectedNum] = useState(0);
 
   const leftPress = useKeyPress('ArrowLeft');
   const rightPress = useKeyPress('ArrowRight');
 
   useEffect(() => {
     if (rightPress) {
-      if (selectedNum < lists.length - 1) {
-        changeSelectedNum(selectedNum + 1);
+      if (selectedNum < itemList.length - 1) {
+        setSelectedNum(selectedNum + 1);
       } else {
-        changeSelectedNum(0);
+        setSelectedNum(0);
       }
-    }
-    if (leftPress) {
+    } else if (leftPress) {
       if (selectedNum > 0) {
-        changeSelectedNum(selectedNum - 1);
+        setSelectedNum(selectedNum - 1);
       } else {
-        changeSelectedNum(lists.length - 1);
+        setSelectedNum(itemList.length - 1);
       }
     }
-    setIsPressArrow(isPressArrow + 1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [leftPress, rightPress]);
 
   return (
     <TypeContainer>
-      <h1>TYPE A</h1>
-      <input type='number' onChange={e => inputChangeHandler(e)} />
-      <button onClick={applyNumber}>적용</button>
-      <ContentsContainer>
-        {lists.map((list, key) => {
+      <Title>
+        TYPE A <span>: Carousel </span>
+      </Title>
+      <ItemsContainer>
+        {itemList.map((list, key) => {
           return (
-            <Content
-              text={list}
-              num={key}
+            <ItemA
+              content={list}
+              index={key}
               isSelected={selectedNum === key}
-              clickContent={() => clickContent(key)}
-              isPressArrow={isPressArrow}
             />
           );
         })}
-      </ContentsContainer>
+      </ItemsContainer>
     </TypeContainer>
   );
 };

@@ -1,19 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Content from '../components/Content';
+import ItemB from '../components/ItemB';
 
 import useKeyPress from '../Hooks/useKeyPress';
 
 const TypeContainer = styled.div`
   border: 1px solid black;
-  margin: 0 auto;
-  /* width: 1000px; */
+  margin: 20px 100px;
+  padding: 30px 0;
+  border-radius: 10px;
 `;
 
 const ContentsContainer = styled.div`
   overflow: scroll;
   margin: 20px;
-  height: 500px;
+  height: 600px;
+`;
+
+const Title = styled.div`
+  font-size: 2.5rem;
+  font-weight: 200;
+  text-align: left;
+  padding-left: 3rem;
+  > span {
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+  }
 `;
 
 const TypeA = () => {
@@ -89,13 +102,15 @@ const TypeA = () => {
 
   return (
     <TypeContainer>
-      <h1>TYPE B</h1>
+      <Title>
+        TYPE B <span>: List</span>
+      </Title>
       <input type='number' onChange={e => inputChangeHandler(e)} />
       <button onClick={applyNumber}>적용</button>
       <ContentsContainer>
         {lists.map((list, key) => {
           return (
-            <Content
+            <ItemB
               text={list}
               num={key}
               isSelected={selectedNum === key}

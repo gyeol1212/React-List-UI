@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContentDiv = styled.div`
-  /* border: 1px solid black; */
   height: 90%;
   margin: 1rem;
 `;
@@ -29,7 +28,7 @@ const Subtitle = styled(Header)`
 const ContentDetail = props => {
   return (
     <ContentDiv>
-      <Header> {props.num}</Header>
+      <Header> {props.index}</Header>
       <Title />
       <Subtitle />
     </ContentDiv>

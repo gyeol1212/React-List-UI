@@ -1,11 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-const ContentDiv = styled.div`
-  border: 1px solid black;
+import ItemDetail from './ItemDetail';
+
+const SelectingArea = styled.div`
+  /* border: 1px solid black; */
   margin: 1%;
   width: 23%;
-  height: 200px;
+  height: 300px;
+  padding: 0.5rem;
   box-sizing: border-box;
   display: inline-block;
   background-color: ${props => props.isSelected && 'skyblue'};
@@ -22,16 +25,17 @@ const Content = props => {
         divEl.current.scrollIntoView(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.isSelected]);
 
   return (
-    <ContentDiv
+    <SelectingArea
       isSelected={props.isSelected}
       onClick={props.clickContent}
       ref={divEl}
     >
-      {props.num}
-    </ContentDiv>
+      <ItemDetail index={props.num} />
+    </SelectingArea>
   );
 };
 

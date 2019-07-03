@@ -8,21 +8,38 @@ import TypeB from './containers/TypeB';
 
 const Container = styled.div`
   text-align: center;
-  margin: auto 100px;
+  margin: 50px 100px;
+`;
+
+const Title = styled.div`
+  font-size: 5rem;
+  font-weight: 200;
+  letter-spacing: 15px;
+`;
+
+const Button = styled.div`
+  font-weight: 300;
+  font-size: 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin: 2rem 1rem;
 `;
 
 function App() {
-  const [type, setType] = useState(null);
+  const [type, setType] = useState(true);
 
   const selectType = isA => {
     setType(isA);
   };
   return (
     <Container>
-      <h1>List UI</h1>
-      <button onClick={() => selectType(true)}>TYPE A</button>
-      <button onClick={() => selectType(false)}>TYPE B</button>
-      {type ? <TypeA /> : type === false ? <TypeB /> : null}
+      <Title>List UI</Title>
+      <Button onClick={() => selectType(true)}>TYPE A</Button>
+      <Button onClick={() => selectType(false)}>TYPE B</Button>
+      {type ? <TypeA /> : <TypeB />}
     </Container>
   );
 }
