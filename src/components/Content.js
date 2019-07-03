@@ -16,7 +16,11 @@ const Content = props => {
 
   useEffect(() => {
     if (props.isSelected) {
-      divEl.current.scrollIntoView();
+      if (props.isPlus) {
+        divEl.current.scrollIntoView(false);
+      } else {
+        divEl.current.scrollIntoView(true);
+      }
     }
   }, [props.isSelected]);
 

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Content from '../components/Content';
+import Content from '../components/ContentA';
 import useKeyPress from '../Hooks/useKeyPress';
 
 const TypeContainer = styled.div`
@@ -9,12 +9,17 @@ const TypeContainer = styled.div`
 `;
 
 const ContentsContainer = styled.div`
-  overflow-x: scroll;
+  overflow-x: hidden;
   white-space: nowrap;
   margin: 20px;
 `;
 
-const TypeA = () => {
+const TypeA = props => {
+  // const divEl = useRef(null);
+
+  // useEffect(() => {
+  //   console.log('parent', divEl);
+  // });
   const [number, changeNumber] = useState(0);
 
   const initialList = [];
@@ -25,6 +30,8 @@ const TypeA = () => {
   const [lists, changeListCount] = useState(initialList);
 
   const [selectedNum, changeSelectedNum] = useState(0);
+
+  const [isPressArrow, setIsPressArrow] = useState(-1);
 
   const inputChangeHandler = e => {
     const { value } = e.target;
@@ -43,8 +50,6 @@ const TypeA = () => {
     changeSelectedNum(num);
   };
 
-  const upPress = useKeyPress('ArrowUp');
-  const downPress = useKeyPress('ArrowDown');
   const leftPress = useKeyPress('ArrowLeft');
   const rightPress = useKeyPress('ArrowRight');
 
@@ -63,21 +68,8 @@ const TypeA = () => {
         changeSelectedNum(lists.length - 1);
       }
     }
-    if (downPress) {
-      if (selectedNum < lists.length - 5) {
-        changeSelectedNum(selectedNum + 4);
-      } else {
-        changeSelectedNum(selectedNum + 4 - lists.length);
-      }
-    }
-    if (upPress) {
-      if (selectedNum > 3) {
-        changeSelectedNum(selectedNum - 4);
-      } else {
-        changeSelectedNum(lists.length + selectedNum - 4);
-      }
-    }
-  }, [upPress, downPress, leftPress, rightPress]);
+    setIsPressArrow(isPressArrow + 1);
+  }, [leftPress, rightPress]);
 
   return (
     <TypeContainer>
@@ -92,6 +84,7 @@ const TypeA = () => {
               num={key}
               isSelected={selectedNum === key}
               clickContent={() => clickContent(key)}
+              isPressArrow={isPressArrow}
             />
           );
         })}

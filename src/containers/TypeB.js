@@ -28,6 +28,8 @@ const TypeA = () => {
 
   const [selectedNum, changeSelectedNum] = useState(0);
 
+  const [isPlus, setIsPlus] = useState(true);
+
   const inputChangeHandler = e => {
     const { value } = e.target;
     changeNumber(value);
@@ -57,6 +59,7 @@ const TypeA = () => {
       } else {
         changeSelectedNum(0);
       }
+      setIsPlus(true);
     }
     if (leftPress) {
       if (selectedNum > 0) {
@@ -64,6 +67,7 @@ const TypeA = () => {
       } else {
         changeSelectedNum(lists.length - 1);
       }
+      setIsPlus(false);
     }
     if (downPress) {
       if (selectedNum < lists.length - 5) {
@@ -71,6 +75,7 @@ const TypeA = () => {
       } else {
         changeSelectedNum(selectedNum + 4 - lists.length);
       }
+      setIsPlus(true);
     }
     if (upPress) {
       if (selectedNum > 3) {
@@ -78,6 +83,7 @@ const TypeA = () => {
       } else {
         changeSelectedNum(lists.length + selectedNum - 4);
       }
+      setIsPlus(false);
     }
   }, [upPress, downPress, leftPress, rightPress]);
 
@@ -94,6 +100,7 @@ const TypeA = () => {
               num={key}
               isSelected={selectedNum === key}
               clickContent={() => clickContent(key)}
+              isPlus={isPlus}
             />
           );
         })}
