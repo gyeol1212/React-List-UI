@@ -27,7 +27,7 @@ const Title = styled.div`
   }
 `;
 
-const TypeA = () => {
+const TypeA = props => {
   const itemList = [];
   for (let i = 0; i < 20; i++) {
     itemList.push('');
@@ -67,6 +67,8 @@ const TypeA = () => {
               content={list}
               index={key}
               isSelected={selectedItemNum === key}
+              width={props.width}
+              height={props.height}
             />
           );
         })}

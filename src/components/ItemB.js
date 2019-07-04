@@ -4,9 +4,8 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
-  /* border: 1px solid black; */
-  /* margin: 1%; */
-  width: 25%;
+  /* width: 25%; */
+  width: ${props => `${100 / props.col}%`};
   height: 300px;
   padding: 0.5rem;
   box-sizing: border-box;
@@ -17,24 +16,25 @@ const SelectingArea = styled.div`
 const Content = props => {
   const divEl = useRef(null);
 
+  const { isSelected, index, clickContent, N } = props;
+
   useEffect(() => {
-    if (props.isSelected) {
-      console.log(divEl);
+    if (isSelected) {
+      const {
+        current: {
+          offsetHeight: contentHeight,
+          parentNode: { scrollTop, clientHeight: listHeight }
+        }
+      } = divEl;
+      const scrollBottom = scrollTop + listHeight;
 
-      const contentHeight = divEl.current.offsetHeight;
-
-      const scrollTop = divEl.current.parentNode.scrollTop;
-      const ListHeight = divEl.current.parentNode.clientHeight;
-
-      const scrollBottom = scrollTop + ListHeight;
-
-      const n = Math.floor(props.index / 4);
+      const n = Math.floor(index / N);
 
       // item의 아랫부분이 전부 보이지 않을 경우?
       if (scrollBottom < contentHeight * (n + 1)) {
         divEl.current.parentNode.scrollTo(
           0,
-          contentHeight * (n + 1) - ListHeight
+          contentHeight * (n + 1) - listHeight
         );
       }
       // item의 윗부분이 전부 보이지 않을 경우
@@ -42,16 +42,16 @@ const Content = props => {
         divEl.current.parentNode.scrollTo(0, contentHeight * n);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.isSelected]);
+  }, [N, index, isSelected]);
 
   return (
     <SelectingArea
-      isSelected={props.isSelected}
-      onClick={props.clickContent}
+      isSelected={isSelected}
+      onClick={clickContent}
       ref={divEl}
+      col={N}
     >
-      <ItemDetail index={props.index} />
+      <ItemDetail index={index} />
     </SelectingArea>
   );
 };

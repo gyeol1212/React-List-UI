@@ -55,7 +55,9 @@ const InputField = styled.div`
   }
 `;
 
-const TypeA = () => {
+const TypeB = props => {
+  const N = props.col || 4;
+
   // inputChangeHandler
   const [inputNumber, setInputNumber] = useState(0);
 
@@ -86,8 +88,6 @@ const TypeA = () => {
   // 선택된 Item Number
   const [selectedItemNum, setSelectedItemNum] = useState(0);
 
-  const [isPlus, setIsPlus] = useState(true);
-
   // click시, 선택
   const clickContent = num => {
     setSelectedItemNum(num);
@@ -113,54 +113,19 @@ const TypeA = () => {
         setSelectedItemNum(itemList.length - 1);
       }
     } else if (downPress) {
-      if (selectedItemNum < itemList.length - 4) {
-        setSelectedItemNum(selectedItemNum + 4);
+      if (selectedItemNum < itemList.length - N) {
+        setSelectedItemNum(selectedItemNum + N);
       } else {
-        setSelectedItemNum(selectedItemNum + 4 - itemList.length);
+        setSelectedItemNum(selectedItemNum + N - itemList.length);
       }
     } else if (upPress) {
-      if (selectedItemNum > 3) {
-        setSelectedItemNum(selectedItemNum - 4);
+      if (selectedItemNum > N - 1) {
+        setSelectedItemNum(selectedItemNum - N);
       } else {
-        setSelectedItemNum(itemList.length + selectedItemNum - 4);
+        setSelectedItemNum(itemList.length + selectedItemNum - N);
       }
     }
-  }, [rightPress, leftPress, upPress, downPress]);
-
-  // useEffect(() => {
-  //   if (rightPress) {
-  //     if (selectedItemNum < itemList.length - 1) {
-  //       setSelectedItemNum(selectedItemNum + 1);
-  //     } else {
-  //       setSelectedItemNum(0);
-  //     }
-  //     setIsPlus(true);
-  //   }
-  //   if (leftPress) {
-  //     if (selectedItemNum > 0) {
-  //       setSelectedItemNum(selectedItemNum - 1);
-  //     } else {
-  //       setSelectedItemNum(itemList.length - 1);
-  //     }
-  //     setIsPlus(false);
-  //   }
-  //   if (downPress) {
-  //     if (selectedItemNum < itemList.length - 5) {
-  //       setSelectedItemNum(selectedItemNum + 4);
-  //     } else {
-  //       setSelectedItemNum(selectedItemNum + 4 - itemList.length);
-  //     }
-  //     setIsPlus(true);
-  //   }
-  //   if (upPress) {
-  //     if (selectedItemNum > 3) {
-  //       setSelectedItemNum(selectedItemNum - 4);
-  //     } else {
-  //       setSelectedItemNum(itemList.length + selectedItemNum - 4);
-  //     }
-  //     setIsPlus(false);
-  //   }
-  // }, [upPress, downPress, leftPress, rightPress]);
+  }, [rightPress, leftPress, downPress, upPress]);
 
   return (
     <TypeContainer>
@@ -181,9 +146,7 @@ const TypeA = () => {
               index={key}
               isSelected={selectedItemNum === key}
               clickContent={() => clickContent(key)}
-              isPlus={rightPress}
-              isMinus={leftPress}
-              listLen={itemList.length}
+              N={N}
             />
           );
         })}
@@ -192,4 +155,4 @@ const TypeA = () => {
   );
 };
 
-export default TypeA;
+export default TypeB;

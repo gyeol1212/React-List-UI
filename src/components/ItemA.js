@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
-  width: 300px;
-  height: 300px;
+  /* width: 300px; */
+  width: ${props => `${props.width || 300}px`};
+  height: ${props => `${props.height || 300}px`};
+  /* height: 300px; */
   box-sizing: border-box;
   display: inline-block;
   background-color: ${props => props.isSelected && 'rgb(182,238,238)'};
@@ -30,7 +32,12 @@ const Content = props => {
   }, [isSelected, index]);
 
   return (
-    <SelectingArea isSelected={props.isSelected} ref={divEl}>
+    <SelectingArea
+      isSelected={props.isSelected}
+      ref={divEl}
+      width={props.width}
+      height={props.height}
+    >
       <ItemDetail index={props.index} />
     </SelectingArea>
   );

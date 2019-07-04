@@ -39,7 +39,7 @@ function App() {
       <Title>List UI</Title>
       <Button onClick={() => selectType(true)}>TYPE A</Button>
       <Button onClick={() => selectType(false)}>TYPE B</Button>
-      {type ? <TypeA /> : <TypeB col={4} />}
+      {type ? <TypeA width={300} height={300} /> : <TypeB col={4} />}
     </Container>
   );
 }
