@@ -33,23 +33,23 @@ const TypeA = () => {
     itemList.push('');
   }
 
-  const [selectedNum, setSelectedNum] = useState(0);
+  const [selectedItemNum, setSelectedItemNum] = useState(0);
 
-  const leftPress = useKeyPress('ArrowLeft');
-  const rightPress = useKeyPress('ArrowRight');
+  const leftPress = useKeyPress(37);
+  const rightPress = useKeyPress(39);
 
   useEffect(() => {
     if (rightPress) {
-      if (selectedNum < itemList.length - 1) {
-        setSelectedNum(selectedNum + 1);
+      if (selectedItemNum < itemList.length - 1) {
+        setSelectedItemNum(selectedItemNum + 1);
       } else {
-        setSelectedNum(0);
+        setSelectedItemNum(0);
       }
     } else if (leftPress) {
-      if (selectedNum > 0) {
-        setSelectedNum(selectedNum - 1);
+      if (selectedItemNum > 0) {
+        setSelectedItemNum(selectedItemNum - 1);
       } else {
-        setSelectedNum(itemList.length - 1);
+        setSelectedItemNum(itemList.length - 1);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -66,7 +66,7 @@ const TypeA = () => {
             <ItemA
               content={list}
               index={key}
-              isSelected={selectedNum === key}
+              isSelected={selectedItemNum === key}
             />
           );
         })}

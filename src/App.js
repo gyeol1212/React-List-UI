@@ -29,7 +29,7 @@ const Button = styled.div`
 `;
 
 function App() {
-  const [type, setType] = useState(true);
+  const [type, setType] = useState(false);
 
   const selectType = isA => {
     setType(isA);
@@ -39,7 +39,7 @@ function App() {
       <Title>List UI</Title>
       <Button onClick={() => selectType(true)}>TYPE A</Button>
       <Button onClick={() => selectType(false)}>TYPE B</Button>
-      {type ? <TypeA /> : <TypeB />}
+      {type ? <TypeA /> : <TypeB col={4} />}
     </Container>
   );
 }

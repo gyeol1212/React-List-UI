@@ -15,7 +15,10 @@ const TypeContainer = styled.div`
 const ContentsContainer = styled.div`
   overflow: scroll;
   margin: 20px;
-  height: 600px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  scroll-behavior: smooth;
 `;
 
 const Title = styled.div`
@@ -29,93 +32,158 @@ const Title = styled.div`
   }
 `;
 
-const TypeA = () => {
-  const [number, changeNumber] = useState(0);
-
-  const initialList = [];
-  for (let i = 0; i < 20; i++) {
-    initialList.push('');
+const InputField = styled.div`
+  margin-left: auto;
+  margin-right: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  > input {
+    font-size: 1.2rem;
+    width: 40%;
+    text-align: right;
+    padding: 0.2rem 0.5rem;
   }
+  > div {
+    border: 2px solid gray;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    margin-left: 0.5rem;
+    cursor: pointer;
+  }
+`;
 
-  const [lists, changeListCount] = useState(initialList);
-
-  const [selectedNum, changeSelectedNum] = useState(0);
-
-  const [isPlus, setIsPlus] = useState(true);
+const TypeA = () => {
+  // inputChangeHandler
+  const [inputNumber, setInputNumber] = useState(0);
 
   const inputChangeHandler = e => {
     const { value } = e.target;
-    changeNumber(value);
+    setInputNumber(value);
   };
 
+  //// input에 입력한 값 적용
+  // 초기 값 = 20
+  const initialItemList = [];
+  for (let i = 0; i < 20; i++) {
+    initialItemList.push('');
+  }
+
+  // itemList 설정
+  const [itemList, setItemList] = useState(initialItemList);
+
+  // click시, input에 입력된 값 적용
   const applyNumber = () => {
     let l = [];
-    for (let i = 0; i < number; i++) {
+    for (let i = 0; i < inputNumber; i++) {
       l.push('');
     }
-    changeListCount(l);
+    setItemList(l);
   };
 
+  // 선택된 Item Number
+  const [selectedItemNum, setSelectedItemNum] = useState(0);
+
+  const [isPlus, setIsPlus] = useState(true);
+
+  // click시, 선택
   const clickContent = num => {
-    changeSelectedNum(num);
+    setSelectedItemNum(num);
   };
 
-  const upPress = useKeyPress('ArrowUp');
-  const downPress = useKeyPress('ArrowDown');
-  const leftPress = useKeyPress('ArrowLeft');
-  const rightPress = useKeyPress('ArrowRight');
+  const leftPress = useKeyPress(37);
+  const upPress = useKeyPress(38);
+  const rightPress = useKeyPress(39);
+  const downPress = useKeyPress(40);
 
   useEffect(() => {
+    console.log(upPress);
     if (rightPress) {
-      if (selectedNum < lists.length - 1) {
-        changeSelectedNum(selectedNum + 1);
+      if (selectedItemNum < itemList.length - 1) {
+        setSelectedItemNum(selectedItemNum + 1);
       } else {
-        changeSelectedNum(0);
+        setSelectedItemNum(0);
       }
-      setIsPlus(true);
-    }
-    if (leftPress) {
-      if (selectedNum > 0) {
-        changeSelectedNum(selectedNum - 1);
+    } else if (leftPress) {
+      if (selectedItemNum > 0) {
+        setSelectedItemNum(selectedItemNum - 1);
       } else {
-        changeSelectedNum(lists.length - 1);
+        setSelectedItemNum(itemList.length - 1);
       }
-      setIsPlus(false);
-    }
-    if (downPress) {
-      if (selectedNum < lists.length - 5) {
-        changeSelectedNum(selectedNum + 4);
+    } else if (downPress) {
+      if (selectedItemNum < itemList.length - 4) {
+        setSelectedItemNum(selectedItemNum + 4);
       } else {
-        changeSelectedNum(selectedNum + 4 - lists.length);
+        setSelectedItemNum(selectedItemNum + 4 - itemList.length);
       }
-      setIsPlus(true);
-    }
-    if (upPress) {
-      if (selectedNum > 3) {
-        changeSelectedNum(selectedNum - 4);
+    } else if (upPress) {
+      if (selectedItemNum > 3) {
+        setSelectedItemNum(selectedItemNum - 4);
       } else {
-        changeSelectedNum(lists.length + selectedNum - 4);
+        setSelectedItemNum(itemList.length + selectedItemNum - 4);
       }
-      setIsPlus(false);
     }
-  }, [upPress, downPress, leftPress, rightPress]);
+  }, [rightPress, leftPress, upPress, downPress]);
+
+  // useEffect(() => {
+  //   if (rightPress) {
+  //     if (selectedItemNum < itemList.length - 1) {
+  //       setSelectedItemNum(selectedItemNum + 1);
+  //     } else {
+  //       setSelectedItemNum(0);
+  //     }
+  //     setIsPlus(true);
+  //   }
+  //   if (leftPress) {
+  //     if (selectedItemNum > 0) {
+  //       setSelectedItemNum(selectedItemNum - 1);
+  //     } else {
+  //       setSelectedItemNum(itemList.length - 1);
+  //     }
+  //     setIsPlus(false);
+  //   }
+  //   if (downPress) {
+  //     if (selectedItemNum < itemList.length - 5) {
+  //       setSelectedItemNum(selectedItemNum + 4);
+  //     } else {
+  //       setSelectedItemNum(selectedItemNum + 4 - itemList.length);
+  //     }
+  //     setIsPlus(true);
+  //   }
+  //   if (upPress) {
+  //     if (selectedItemNum > 3) {
+  //       setSelectedItemNum(selectedItemNum - 4);
+  //     } else {
+  //       setSelectedItemNum(itemList.length + selectedItemNum - 4);
+  //     }
+  //     setIsPlus(false);
+  //   }
+  // }, [upPress, downPress, leftPress, rightPress]);
 
   return (
     <TypeContainer>
-      <Title>
-        TYPE B <span>: List</span>
-      </Title>
-      <input type='number' onChange={e => inputChangeHandler(e)} />
-      <button onClick={applyNumber}>적용</button>
+      <div style={{ display: 'flex' }}>
+        <Title>
+          TYPE B <span>: List</span>
+        </Title>
+        <InputField>
+          <input type='number' onChange={e => inputChangeHandler(e)} />
+          <div onClick={applyNumber}>적용</div>
+        </InputField>
+      </div>
       <ContentsContainer>
-        {lists.map((list, key) => {
+        {itemList.map((list, key) => {
           return (
             <ItemB
               text={list}
-              num={key}
-              isSelected={selectedNum === key}
+              index={key}
+              isSelected={selectedItemNum === key}
               clickContent={() => clickContent(key)}
-              isPlus={isPlus}
+              isPlus={rightPress}
+              isMinus={leftPress}
+              listLen={itemList.length}
             />
           );
         })}
