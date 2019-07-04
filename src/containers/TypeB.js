@@ -12,13 +12,14 @@ const TypeContainer = styled.div`
   border-radius: 10px;
 `;
 
-const ContentsContainer = styled.div`
+const ItemsContainer = styled.div`
   overflow: scroll;
   margin: 20px;
-  height: 500px;
+  height: ${props => `${props.height || 500}px`};
   display: flex;
   flex-wrap: wrap;
   scroll-behavior: smooth;
+  /* will-change: scroll-position; */
 `;
 
 const Title = styled.div`
@@ -134,11 +135,18 @@ const TypeB = props => {
           TYPE B <span>: List</span>
         </Title>
         <InputField>
-          <input type='number' onChange={e => inputChangeHandler(e)} />
+          <input
+            type='number'
+            placeholder='아이템 개수'
+            onChange={e => inputChangeHandler(e)}
+          />
           <div onClick={applyNumber}>적용</div>
         </InputField>
       </div>
-      <ContentsContainer>
+      <ItemsContainer
+        height={props.listStyle.height}
+        // style={{ transform: 'translate3d(0,0,0)' }}
+      >
         {itemList.map((list, key) => {
           return (
             <ItemB
@@ -147,10 +155,11 @@ const TypeB = props => {
               isSelected={selectedItemNum === key}
               clickContent={() => clickContent(key)}
               N={N}
+              itemStyle={props.itemStyle}
             />
           );
         })}
-      </ContentsContainer>
+      </ItemsContainer>
     </TypeContainer>
   );
 };

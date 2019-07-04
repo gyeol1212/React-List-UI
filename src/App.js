@@ -39,7 +39,20 @@ function App() {
       <Title>List UI</Title>
       <Button onClick={() => selectType(true)}>TYPE A</Button>
       <Button onClick={() => selectType(false)}>TYPE B</Button>
-      {type ? <TypeA width={300} height={300} /> : <TypeB col={4} />}
+      {type ? (
+        <TypeA
+          itemStyle={{
+            width: 300,
+            height: 300
+          }}
+        />
+      ) : (
+        <TypeB
+          col={4}
+          listStyle={{ height: 500 }}
+          itemStyle={{ height: 300 }}
+        />
+      )}
     </Container>
   );
 }

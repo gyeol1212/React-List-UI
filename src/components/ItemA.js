@@ -35,8 +35,8 @@ const Content = props => {
     <SelectingArea
       isSelected={props.isSelected}
       ref={divEl}
-      width={props.width}
-      height={props.height}
+      width={props.itemStyle.width}
+      height={props.itemStyle.height}
     >
       <ItemDetail index={props.index} />
     </SelectingArea>

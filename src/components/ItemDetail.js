@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContentDiv = styled.div`
-  height: 90%;
+  height: 95%;
   margin: 1rem;
 `;
 
@@ -18,7 +18,7 @@ const Header = styled.div`
 
 const Title = styled(Header)`
   height: 10%;
-  margin: 10px 0;
+  margin: 5% 0;
 `;
 const Subtitle = styled(Header)`
   height: 10%;
@@ -28,7 +28,15 @@ const Subtitle = styled(Header)`
 const ContentDetail = props => {
   return (
     <ContentDiv>
-      <Header> {props.index}</Header>
+      <Header>
+        {' '}
+        {/* <img
+          src='https://picsum.photos/400/400'
+          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+          alt='img'
+        /> */}
+        {props.index}
+      </Header>
       <Title />
       <Subtitle />
     </ContentDiv>

@@ -4,19 +4,19 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
-  /* width: 25%; */
   width: ${props => `${100 / props.col}%`};
-  height: 300px;
+  height: ${props => `${props.height || 300}px`};
   padding: 0.5rem;
   box-sizing: border-box;
   display: inline-block;
+  /* will-change: background-color; */
   background-color: ${props => props.isSelected && 'skyblue'};
 `;
 
 const Content = props => {
   const divEl = useRef(null);
 
-  const { isSelected, index, clickContent, N } = props;
+  const { isSelected, index, clickContent, N, itemStyle } = props;
 
   useEffect(() => {
     if (isSelected) {
@@ -50,6 +50,8 @@ const Content = props => {
       onClick={clickContent}
       ref={divEl}
       col={N}
+      height={itemStyle.height}
+      // style={{ transform: 'translate3d(0,0,0)' }}
     >
       <ItemDetail index={index} />
     </SelectingArea>

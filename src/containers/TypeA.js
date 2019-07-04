@@ -67,8 +67,7 @@ const TypeA = props => {
               content={list}
               index={key}
               isSelected={selectedItemNum === key}
-              width={props.width}
-              height={props.height}
+              itemStyle={props.itemStyle}
             />
           );
         })}
