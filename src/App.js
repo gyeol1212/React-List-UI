@@ -3,8 +3,7 @@ import './App.css';
 
 import styled from 'styled-components';
 
-import TypeA from './containers/TypeA';
-import TypeB from './containers/TypeB';
+import ListUI from './ListUI';
 
 const Container = styled.div`
   text-align: center;
@@ -39,20 +38,24 @@ function App() {
       <Title>List UI</Title>
       <Button onClick={() => selectType(true)}>TYPE A</Button>
       <Button onClick={() => selectType(false)}>TYPE B</Button>
-      {type ? (
-        <TypeA
-          itemStyle={{
-            width: 300,
-            height: 300
-          }}
-        />
-      ) : (
-        <TypeB
-          col={4}
-          listStyle={{ height: 500 }}
-          itemStyle={{ height: 300 }}
-        />
-      )}
+      <ListUI
+        type={type ? 'A' : 'B'}
+        //////////
+        // 공통
+        clickDisable={false} // Default : false
+        smoothScroll={true} // Default : false
+        ///////////
+        // TypeA
+        // itemStyle={{
+        //   height: 300,
+        //   width: 300
+        // }}
+        ////////////
+        // TypeB
+        itemStyle={{ height: 300 }}
+        listStyle={{ height: 500 }}
+        col={4} // Default : 4
+      />
     </Container>
   );
 }

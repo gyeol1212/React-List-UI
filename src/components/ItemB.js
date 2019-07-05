@@ -6,7 +6,6 @@ import ItemDetail from './ItemDetail';
 const SelectingArea = styled.div`
   width: ${props => `${100 / props.col}%`};
   height: ${props => `${props.height || 300}px`};
-  padding: 0.5rem;
   box-sizing: border-box;
   display: inline-block;
   /* will-change: background-color; */
@@ -16,7 +15,7 @@ const SelectingArea = styled.div`
 const Content = props => {
   const divEl = useRef(null);
 
-  const { isSelected, index, clickContent, N, itemStyle } = props;
+  const { isSelected, index, onClickItem, N, itemStyle } = props;
 
   useEffect(() => {
     if (isSelected) {
@@ -47,7 +46,7 @@ const Content = props => {
   return (
     <SelectingArea
       isSelected={isSelected}
-      onClick={clickContent}
+      onClick={onClickItem}
       ref={divEl}
       col={N}
       height={itemStyle.height}

@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContentDiv = styled.div`
-  height: 95%;
-  margin: 1rem;
+  box-sizing: border-box;
+  height: inherit;
+  padding: 1rem;
 `;
 
 const Header = styled.div`

@@ -18,7 +18,7 @@ const ItemsContainer = styled.div`
   height: ${props => `${props.height || 500}px`};
   display: flex;
   flex-wrap: wrap;
-  scroll-behavior: smooth;
+  scroll-behavior: ${props => props.smoothScroll && 'smooth'};
   /* will-change: scroll-position; */
 `;
 
@@ -57,7 +57,9 @@ const InputField = styled.div`
 `;
 
 const TypeB = props => {
-  const N = props.col || 4;
+  const { clickDisable, smoothScroll, itemStyle, listStyle, col } = props;
+
+  const N = col || 4;
 
   // inputChangeHandler
   const [inputNumber, setInputNumber] = useState(0);
@@ -90,7 +92,7 @@ const TypeB = props => {
   const [selectedItemNum, setSelectedItemNum] = useState(0);
 
   // click시, 선택
-  const clickContent = num => {
+  const onClickItem = num => {
     setSelectedItemNum(num);
   };
 
@@ -144,7 +146,8 @@ const TypeB = props => {
         </InputField>
       </div>
       <ItemsContainer
-        height={props.listStyle.height}
+        height={listStyle.height}
+        smoothScroll={smoothScroll}
         // style={{ transform: 'translate3d(0,0,0)' }}
       >
         {itemList.map((list, key) => {
@@ -152,10 +155,11 @@ const TypeB = props => {
             <ItemB
               text={list}
               index={key}
+              key={key}
               isSelected={selectedItemNum === key}
-              clickContent={() => clickContent(key)}
+              onClickItem={clickDisable ? null : () => onClickItem(key)}
               N={N}
-              itemStyle={props.itemStyle}
+              itemStyle={itemStyle}
             />
           );
         })}

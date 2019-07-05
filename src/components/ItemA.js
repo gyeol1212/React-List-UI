@@ -4,17 +4,15 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
-  /* width: 300px; */
   width: ${props => `${props.width || 300}px`};
   height: ${props => `${props.height || 300}px`};
-  /* height: 300px; */
   box-sizing: border-box;
   display: inline-block;
   background-color: ${props => props.isSelected && 'rgb(182,238,238)'};
 `;
 
 const Content = props => {
-  const { isSelected, index } = props;
+  const { isSelected, index, onClickItem } = props;
   const divEl = useRef(null);
 
   useEffect(() => {
@@ -37,6 +35,7 @@ const Content = props => {
       ref={divEl}
       width={props.itemStyle.width}
       height={props.itemStyle.height}
+      onClick={onClickItem}
     >
       <ItemDetail index={props.index} />
     </SelectingArea>

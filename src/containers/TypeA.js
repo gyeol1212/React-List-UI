@@ -14,6 +14,8 @@ const ItemsContainer = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   margin: 20px;
+  /* TODO : 넣을지, 말지 */
+  scroll-behavior: ${props => props.smoothScroll && 'smooth'};
 `;
 
 const Title = styled.div`
@@ -28,12 +30,19 @@ const Title = styled.div`
 `;
 
 const TypeA = props => {
+  const { clickDisable, smoothScroll, itemStyle } = props;
+
   const itemList = [];
   for (let i = 0; i < 20; i++) {
     itemList.push('');
   }
 
   const [selectedItemNum, setSelectedItemNum] = useState(0);
+
+  // click시, 선택
+  const onClickItem = num => {
+    setSelectedItemNum(num);
+  };
 
   const leftPress = useKeyPress(37);
   const rightPress = useKeyPress(39);
@@ -60,14 +69,16 @@ const TypeA = props => {
       <Title>
         TYPE A <span>: Carousel </span>
       </Title>
-      <ItemsContainer>
+      <ItemsContainer smoothScroll={smoothScroll}>
         {itemList.map((list, key) => {
           return (
             <ItemA
               content={list}
+              key={key}
               index={key}
               isSelected={selectedItemNum === key}
-              itemStyle={props.itemStyle}
+              itemStyle={itemStyle}
+              onClickItem={clickDisable ? null : () => onClickItem(key)}
             />
           );
         })}
