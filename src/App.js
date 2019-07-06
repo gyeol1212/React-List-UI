@@ -28,7 +28,7 @@ const Button = styled.div`
 `;
 
 function App() {
-  const [type, setType] = useState(false);
+  const [type, setType] = useState(true);
 
   const selectType = isA => {
     setType(isA);
@@ -46,13 +46,13 @@ function App() {
         smoothScroll={true} // Default : false
         ///////////
         // TypeA
-        // itemStyle={{
-        //   height: 300,
-        //   width: 300
-        // }}
+        itemStyle={{
+          height: 300,
+          width: 300
+        }}
         ////////////
         // TypeB
-        itemStyle={{ height: 300 }}
+        // itemStyle={{ height: 300 }}
         listStyle={{ height: 500 }}
         col={4} // Default : 4
       />

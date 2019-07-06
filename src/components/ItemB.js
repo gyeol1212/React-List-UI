@@ -49,7 +49,7 @@ const Content = props => {
       onClick={onClickItem}
       ref={divEl}
       col={N}
-      height={itemStyle.height}
+      height={itemStyle && itemStyle.height}
       // style={{ transform: 'translate3d(0,0,0)' }}
     >
       <ItemDetail index={index} />
