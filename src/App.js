@@ -44,17 +44,27 @@ function App() {
         // 공통
         clickDisable={false} // Default : false
         smoothScroll={true} // Default : false
+        overScroll={false} // Default : false
+        showResetButton={true} // Default : false
         ///////////
         // TypeA
         itemStyle={{
-          height: 300,
-          width: 300
+          height: '300px',
+          width: '300px'
         }}
         ////////////
         // TypeB
-        // itemStyle={{ height: 300 }}
-        listStyle={{ height: 500 }}
+        // itemStyle={{ height: '300px' }}
+        listStyle={{ height: '500px' }}
         col={4} // Default : 4
+        // CSS Customizing
+        containerCssName={{}}
+        listCssName={{}}
+        itemCssName={{}}
+        selectingAreaCssName={{}}
+        headerCssName={{}}
+        resetButtonCssName={{}}
+        endPointCssName={{}}
       />
     </Container>
   );

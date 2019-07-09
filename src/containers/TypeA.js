@@ -31,8 +31,8 @@ const Title = styled.div`
 `;
 
 const SelectingArea = styled.div`
-  width: ${props => `${props.width || 300}px`};
-  height: ${props => `${props.height || 300}px`};
+  width: ${props => `${props.width || '300px'}`};
+  height: ${props => `${props.height || '300px'}`};
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
@@ -42,31 +42,49 @@ const SelectingArea = styled.div`
   transition: ${props => props.smoothScroll && 'all 0.4s ease'};
 `;
 
+const ResetButton = styled.div`
+  border: 2px solid gray;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  margin: auto 2rem auto auto;
+  cursor: pointer;
+`;
+
 const EndPoint = styled.div`
   width: 20px;
   height: ${props => `${props.height || 300}px`};
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
+  background-color: lightgray;
+  opacity: 0;
   left: ${props => !props.right && 0};
   right: ${props => props.right && 0};
   z-index: 1;
   animation: ${props => props.isEndPoint && 'blink 0.5s linear'};
   @keyframes blink {
     0% {
-      background-color: initial;
+      opacity: 0;
     }
     50% {
-      background-color: lightgray;
+      opacity: 1;
     }
     100% {
-      background-color: none;
+      opacity: 0;
     }
   }
 `;
 
 const TypeA = props => {
-  const { clickDisable, smoothScroll, itemStyle } = props;
+  const {
+    clickDisable,
+    smoothScroll,
+    overScroll,
+    showResetButton,
+    itemStyle
+  } = props;
 
   const divEl = useRef(null);
 
@@ -80,6 +98,11 @@ const TypeA = props => {
   const [toBeScrollWidth, setToBeScrollWidth] = useState(0);
 
   const [isEndPoint, setIsEndPoint] = useState(false);
+
+  // Reset Button 클릭
+  const onClickReset = () => {
+    setSelectedItemNum(0);
+  };
 
   // click시, 선택
   const onClickItem = num => {
@@ -113,19 +136,23 @@ const TypeA = props => {
       if (selectedItemNum < itemList.length - 1) {
         setSelectedItemNum(selectedItemNum + 1);
       } else {
-        // setSelectedItemNum(0);
-
-        // 오른쪽 끝에 닿았을 때,
-        onEndPoint('right');
+        if (overScroll) {
+          setSelectedItemNum(0);
+        } else {
+          // 오른쪽 끝에 닿았을 때,
+          onEndPoint('right');
+        }
       }
     } else if (leftPress) {
       if (selectedItemNum > 0) {
         setSelectedItemNum(selectedItemNum - 1);
       } else {
-        // setSelectedItemNum(itemList.length - 1);
-
-        // 왼쪽 끝에 닿았을 때,
-        onEndPoint('left');
+        if (overScroll) {
+          setSelectedItemNum(itemList.length - 1);
+        } else {
+          // 왼쪽 끝에 닿았을 때,
+          onEndPoint('left');
+        }
       }
     }
 
@@ -137,9 +164,14 @@ const TypeA = props => {
 
   return (
     <TypeContainer>
-      <Title>
-        TYPE A <span>: Carousel </span>
-      </Title>
+      <div style={{ display: 'flex' }}>
+        <Title>
+          TYPE A <span>: Carousel </span>
+        </Title>
+        {showResetButton && (
+          <ResetButton onClick={onClickReset}>맨 위로</ResetButton>
+        )}
+      </div>
       <ItemsContainer ref={divEl} smoothScroll={smoothScroll}>
         <EndPoint
           height={itemStyle && itemStyle.height}
