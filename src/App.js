@@ -57,14 +57,15 @@ function App() {
         // itemStyle={{ height: '300px' }}
         listStyle={{ height: '500px' }}
         col={4} // Default : 4
+        ///////////////////
         // CSS Customizing
-        containerCssName={{}}
-        listCssName={{}}
-        itemCssName={{}}
-        selectingAreaCssName={{}}
-        headerCssName={{}}
-        resetButtonCssName={{}}
-        endPointCssName={{}}
+        containerCssObject={{}}
+        listCssObject={{}}
+        itemCssObject={{}}
+        selectingAreaCssObject={{}}
+        headerCssObject={{}}
+        resetButtonCssObject={{}}
+        endPointCssObject={{}}
       />
     </Container>
   );

@@ -12,10 +12,23 @@ const SelectingArea = styled.div`
   background-color: ${props => props.isSelected && 'skyblue'};
 `;
 
+const ItemContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 const Content = props => {
   const divEl = useRef(null);
 
-  const { isSelected, index, onClickItem, N, itemStyle } = props;
+  const {
+    isSelected,
+    index,
+    onClickItem,
+    N,
+    itemStyle,
+    itemCssObject,
+    selectingAreaCssObject
+  } = props;
 
   useEffect(() => {
     if (isSelected) {
@@ -50,9 +63,11 @@ const Content = props => {
       ref={divEl}
       col={N}
       height={itemStyle && itemStyle.height}
-      // style={{ transform: 'translate3d(0,0,0)' }}
+      style={isSelected ? selectingAreaCssObject : null}
     >
-      <ItemDetail index={index} />
+      <ItemContainer style={itemCssObject}>
+        <ItemDetail index={index} />
+      </ItemContainer>
     </SelectingArea>
   );
 };

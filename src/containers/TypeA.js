@@ -54,7 +54,7 @@ const ResetButton = styled.div`
 
 const EndPoint = styled.div`
   width: 20px;
-  height: ${props => `${props.height || 300}px`};
+  height: ${props => `${props.height || '300px'}`};
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
@@ -83,7 +83,14 @@ const TypeA = props => {
     smoothScroll,
     overScroll,
     showResetButton,
-    itemStyle
+    itemStyle,
+    containerCssObject,
+    listCssObject,
+    itemCssObject,
+    selectingAreaCssObject,
+    headerCssObject,
+    resetButtonCssObject,
+    endPointCssObject
   } = props;
 
   const divEl = useRef(null);
@@ -163,26 +170,34 @@ const TypeA = props => {
   }, [leftPress, rightPress]);
 
   return (
-    <TypeContainer>
-      <div style={{ display: 'flex' }}>
+    <TypeContainer style={containerCssObject}>
+      <div style={{ display: 'flex', ...headerCssObject }}>
         <Title>
           TYPE A <span>: Carousel </span>
         </Title>
         {showResetButton && (
-          <ResetButton onClick={onClickReset}>맨 위로</ResetButton>
+          <ResetButton onClick={onClickReset} style={resetButtonCssObject}>
+            맨 위로
+          </ResetButton>
         )}
       </div>
-      <ItemsContainer ref={divEl} smoothScroll={smoothScroll}>
+      <ItemsContainer
+        ref={divEl}
+        smoothScroll={smoothScroll}
+        style={listCssObject}
+      >
         <EndPoint
           height={itemStyle && itemStyle.height}
           right={isEndPoint === 'right'}
           isEndPoint={isEndPoint}
+          style={endPointCssObject}
         />
         <SelectingArea
           width={itemStyle && itemStyle.width}
           height={itemStyle && itemStyle.height}
           toBeScrollWidth={toBeScrollWidth}
           smoothScroll={smoothScroll}
+          style={selectingAreaCssObject}
         />
         {itemList.map((list, key) => {
           return (
@@ -193,6 +208,7 @@ const TypeA = props => {
               isSelected={selectedItemNum === key}
               itemStyle={itemStyle}
               onClickItem={clickDisable ? null : () => onClickItem(key)}
+              itemCssObject={itemCssObject}
             />
           );
         })}

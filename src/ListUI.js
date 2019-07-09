@@ -12,7 +12,14 @@ const ListUI = props => {
     showResetButton,
     itemStyle,
     listStyle,
-    col
+    col,
+    containerCssObject,
+    listCssObject,
+    itemCssObject,
+    selectingAreaCssObject,
+    headerCssObject,
+    resetButtonCssObject,
+    endPointCssObject
   } = props;
   return (
     <div>
@@ -23,6 +30,13 @@ const ListUI = props => {
           overScroll={overScroll}
           showResetButton={showResetButton}
           itemStyle={itemStyle}
+          containerCssObject={containerCssObject}
+          listCssObject={listCssObject}
+          itemCssObject={itemCssObject}
+          selectingAreaCssObject={selectingAreaCssObject}
+          headerCssObject={headerCssObject}
+          resetButtonCssObject={resetButtonCssObject}
+          endPointCssObject={endPointCssObject}
         />
       ) : (
         <TypeB
@@ -33,6 +47,13 @@ const ListUI = props => {
           itemStyle={itemStyle}
           listStyle={listStyle}
           col={col}
+          containerCssObject={containerCssObject}
+          listCssObject={listCssObject}
+          itemCssObject={itemCssObject}
+          selectingAreaCssObject={selectingAreaCssObject}
+          headerCssObject={headerCssObject}
+          resetButtonCssObject={resetButtonCssObject}
+          endPointCssObject={endPointCssObject}
         />
       )}
     </div>

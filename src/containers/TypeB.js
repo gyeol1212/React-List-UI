@@ -100,7 +100,14 @@ const TypeB = props => {
     showResetButton,
     itemStyle,
     listStyle,
-    col
+    col,
+    containerCssObject,
+    listCssObject,
+    itemCssObject,
+    selectingAreaCssObject,
+    headerCssObject,
+    resetButtonCssObject,
+    endPointCssObject
   } = props;
 
   const N = col || 4;
@@ -210,8 +217,8 @@ const TypeB = props => {
   }, [rightPress, leftPress, downPress, upPress]);
 
   return (
-    <TypeContainer>
-      <div style={{ display: 'flex' }}>
+    <TypeContainer style={containerCssObject}>
+      <div style={{ display: 'flex', ...headerCssObject }}>
         <Title>
           TYPE B <span>: List</span>
         </Title>
@@ -224,15 +231,21 @@ const TypeB = props => {
           <div onClick={applyNumber}>적용</div>
         </InputField>
         {showResetButton && (
-          <ResetButton onClick={onClickReset}>맨 위로</ResetButton>
+          <ResetButton onClick={onClickReset} style={resetButtonCssObject}>
+            맨 위로
+          </ResetButton>
         )}
       </div>
       <ItemsContainer
         height={listStyle.height}
         smoothScroll={smoothScroll}
-        // style={{ transform: 'translate3d(0,0,0)' }}
+        style={listCssObject}
       >
-        <EndPoint isEndPoint={isEndPoint} bottom={isEndPoint === 'bottom'} />
+        <EndPoint
+          isEndPoint={isEndPoint}
+          bottom={isEndPoint === 'bottom'}
+          style={endPointCssObject}
+        />
         {itemList.map((list, key) => {
           return (
             <ItemB
@@ -243,6 +256,8 @@ const TypeB = props => {
               onClickItem={clickDisable ? null : () => onClickItem(key)}
               N={N}
               itemStyle={itemStyle}
+              itemCssObject={itemCssObject}
+              selectingAreaCssObject={selectingAreaCssObject}
             />
           );
         })}

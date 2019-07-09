@@ -11,7 +11,7 @@ const ItemContainer = styled.div`
 `;
 
 const Item = props => {
-  const { isSelected, index, onClickItem, itemStyle } = props;
+  const { isSelected, index, onClickItem, itemStyle, itemCssObject } = props;
   const divEl = useRef(null);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ const Item = props => {
       width={itemStyle && itemStyle.width}
       height={itemStyle && itemStyle.height}
       onClick={onClickItem}
+      style={itemCssObject}
     >
       <ItemDetail index={index} />
     </ItemContainer>
