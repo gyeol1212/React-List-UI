@@ -1,8 +1,9 @@
 {
   "name": "react-list-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Components that allow you to selectively operate the List UI through keyboard input on the big screen",
   "main": "build/index.js",
+  "license": "MIT",
   "respository": {
     "type": "git",
     "url": "https://github.com/gyeol1212/React-List-UI.git"
@@ -11,12 +12,10 @@
     "name": "Hangyeol Shin"
   },
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "styled-components": "^5.0.0-beta.5",
-    "webpack": "^4.29.6"
+    "styled-components": "^5.0.0-beta.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,12 +39,21 @@
     ]
   },
   "devDependencies": {
+    "babel-preset-react": "^6.24.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
-    "webpack-cli": "^3.3.5"
-  }
+    "webpack-cli": "^3.3.5",
+    "webpack": "^4.29.6"
+  },
+  "keywords": [
+    "react-list-ui",
+    "react-list",
+    "list-ui",
+    "list",
+    "carousel"
+  ]
 }
