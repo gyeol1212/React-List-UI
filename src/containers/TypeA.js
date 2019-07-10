@@ -31,8 +31,8 @@ const Title = styled.div`
 `;
 
 const SelectingArea = styled.div`
-  width: ${props => `${props.width || '300px'}`};
-  height: ${props => `${props.height || '300px'}`};
+  width: ${props => `${props.width || '18rem'}`};
+  height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
@@ -54,7 +54,7 @@ const ResetButton = styled.div`
 
 const EndPoint = styled.div`
   width: 20px;
-  height: ${props => `${props.height || '300px'}`};
+  height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;
   position: absolute;

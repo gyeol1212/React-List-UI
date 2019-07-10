@@ -5,7 +5,7 @@ import ItemDetail from './ItemDetail';
 
 const SelectingArea = styled.div`
   width: ${props => `${100 / props.col}%`};
-  height: ${props => `${props.height || '300px'}`};
+  height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;
   /* will-change: background-color; */

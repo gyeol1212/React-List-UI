@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import ItemDetail from './ItemDetail';
 
 const ItemContainer = styled.div`
-  width: ${props => `${props.width || '300px'}`};
-  height: ${props => `${props.height || '300px'}`};
+  width: ${props => `${props.width || '18rem'}`};
+  height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;
 `;

@@ -16,7 +16,7 @@ const TypeContainer = styled.div`
 const ItemsContainer = styled.div`
   overflow: scroll;
   margin: 20px;
-  height: ${props => `${props.height || '500px'}`};
+  height: ${props => `${props.height || '30rem'}`};
   display: flex;
   flex-wrap: wrap;
   scroll-behavior: ${props => props.smoothScroll && 'smooth'};
