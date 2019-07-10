@@ -4,8 +4,6 @@ import TypeB from './containers/TypeB';
 
 const ListUI = props => {
   const {
-    // TODO : type Default A
-    type,
     clickDisable,
     smoothScroll,
     overScroll,
@@ -21,6 +19,10 @@ const ListUI = props => {
     resetButtonCssObject,
     endPointCssObject
   } = props;
+
+  //type Default A
+  const type = props.type || 'A';
+
   return (
     <div>
       {type === 'A' ? (

@@ -237,7 +237,7 @@ const TypeB = props => {
         )}
       </div>
       <ItemsContainer
-        height={listStyle.height}
+        height={listStyle && listStyle.height}
         smoothScroll={smoothScroll}
         style={listCssObject}
       >

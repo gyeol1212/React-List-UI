@@ -39,33 +39,33 @@ function App() {
       <Button onClick={() => selectType(true)}>TYPE A</Button>
       <Button onClick={() => selectType(false)}>TYPE B</Button>
       <ListUI
-        type={type ? 'A' : 'B'}
-        //////////
-        // 공통
-        clickDisable={false} // Default : false
-        smoothScroll={true} // Default : false
-        overScroll={false} // Default : false
-        showResetButton={true} // Default : false
-        ///////////
-        // TypeA
-        itemStyle={{
-          height: '300px',
-          width: '300px'
-        }}
-        ////////////
-        // TypeB
-        // itemStyle={{ height: '300px' }}
-        listStyle={{ height: '500px' }}
-        col={4} // Default : 4
-        ///////////////////
-        // CSS Customizing
-        containerCssObject={{}}
-        listCssObject={{}}
-        itemCssObject={{}}
-        selectingAreaCssObject={{}}
-        headerCssObject={{}}
-        resetButtonCssObject={{}}
-        endPointCssObject={{}}
+      // type={type ? 'A' : 'B'}
+      //////////
+      // 공통
+      // clickDisable={false} // Default : false
+      // smoothScroll={true} // Default : false
+      // overScroll={false} // Default : false
+      // showResetButton={true} // Default : false
+      ///////////
+      // TypeA
+      // itemStyle={{
+      //   height: '300px',
+      //   width: '300px'
+      // }}
+      ////////////
+      // TypeB
+      // itemStyle={{ height: '300px' }}
+      // listStyle={{ height: '500px' }}
+      // col={4} // Default : 4
+      ///////////////////
+      // CSS Customizing
+      // containerCssObject={{}}
+      // listCssObject={{}}
+      // itemCssObject={{}}
+      // selectingAreaCssObject={{}}
+      // headerCssObject={{}}
+      // resetButtonCssObject={{}}
+      // endPointCssObject={{}}
       />
     </Container>
   );
