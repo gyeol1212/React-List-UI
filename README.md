@@ -8,52 +8,47 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 1.  설치 방법
 
-    > 추후 추가
-
     ```bash
-    $ npm install react-list-ui
+    $ npm install react-list-ui --save
     ```
 
 2.  사용 방법
 
-    > 추후 추가
+        ```javascript
+        import React from 'react';
+        import ListUI from 'react-list-ui';
 
-    ```javascript
-    import React, { Component } from 'react';
-    import ListUI from 'react-list-ui';
+        const App = () => {
+          return (
+            <div className='App'>
+              <ListUI />
+            </div>
+          );
+        };
 
-    class App extends Component {
-      render() {
-        return (
-          <div className='App'>
-            <ListUI />
-          </div>
-        );
-      }
-    }
+        export default App;
 
-    export default App;
-    ```
+        ```
 
-<hr />
+    <hr />
 
 ## props
 
-| Props           | Description                                                                                                                                  | Type                                      | Default                               | Example                                         |
-| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------- | :------------------------------------ | :---------------------------------------------- |
-| **공통**        | _type에 관계 없이 사용 가능한 props입니다_                                                                                                   |                                           |                                       |                                                 |
-| type            | List의 A,B타입을 선택합니다.                                                                                                                 | [ 'A' , 'B' ]                             | 'A'                                   | type={ 'B' }                                    |
-| clickDisable    | 마우스 클릭을 통한 선택 영역 이동 허용 여부를 결정합니다.                                                                                    | bool                                      | false                                 | clickDisable={ true }                           |
-| smoothScroll    | 부드러운 스크롤 이동 여부를 결정합니다.                                                                                                      | bool                                      | true                                  | smoothScroll={ false }                          |
-| overScroll      | 범위를 벗어나는 스크롤일 경우, 처음으로 돌아갈지 여부를 결정합니다. False로 설정할 경우, 스크룰의 끝부분임을 알려주는 EndPoint가 표시됩니다. | bool                                      | false                                 | overScroll={ true }                             |
-| showResetButton | Reset Button 표시 여부를 결정합니다.                                                                                                         | bool                                      | false                                 | showResetButton={ true }                        |
-|                 |                                                                                                                                              |                                           |                                       |
-| **Type A**      | _props.type === 'A' 의 경우 사용 가능한 props들입니다._                                                                                      |                                           |
-| itemStyle       | Carousel 내부의 item들의 사이즈를 지정합니다. Height와 Width를 지정할 수 있습니다.                                                           | Object({ height: string, width: string }) | {{ height: '300px', width: '300px' }} | itemStyle={{ height: '400px', width: '500px' }} |
-|                 |                                                                                                                                              |                                           |                                       |
-| **Type B**      | _props.type === 'B' 의 경우 사용 가능한 props들입니다._                                                                                      |
-| itemStyle       | List 내부의 item들의 사이즈를 지정합니다. Height를 지정할 수 있습니다.                                                                       | Object({ height: string })                | {{ height: '300px' }}                 | itemStyle={{ height: '400px' }}                 |
-| col             | List column의 item 개수를 지정합니다.                                                                                                        | number                                    | 4                                     | col={5}                                         |
+| Props           | Description                                                                                                                                       | Type                                      | Default                               | Example                                         |
+| :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------- | :------------------------------------ | :---------------------------------------------- |
+| **공통**        | _type에 관계 없이 사용 가능한 props입니다_                                                                                                        |                                           |                                       |                                                 |
+| type            | List의 A,B타입을 선택합니다.                                                                                                                      | [ 'A' , 'B' ]                             | 'A'                                   | type={ 'B' }                                    |
+| clickDisable    | 마우스 클릭을 통한 선택 영역 이동 허용 여부를 결정합니다.                                                                                         | bool                                      | false                                 | clickDisable={ true }                           |
+| smoothScroll    | 부드러운 스크롤 이동 여부를 결정합니다.                                                                                                           | bool                                      | true                                  | smoothScroll={ false }                          |
+| overScroll      | 범위를 벗어나는 스크롤일 경우, 처음으로 돌아갈지 여부를 결정합니다. <br> False로 설정할 경우, 스크룰의 끝부분임을 알려주는 EndPoint가 표시됩니다. | bool                                      | false                                 | overScroll={ true }                             |
+| showResetButton | Reset Button 표시 여부를 결정합니다.                                                                                                              | bool                                      | false                                 | showResetButton={ true }                        |
+|                 |                                                                                                                                                   |                                           |                                       |
+| **Type A**      | _props.type === 'A' 의 경우 사용 가능한 props들입니다._                                                                                           |                                           |
+| itemStyle       | Carousel 내부의 item들의 사이즈를 지정합니다.<br> Height와 Width를 지정할 수 있습니다.                                                            | Object({ height: string, width: string }) | {{ height: '18rem', width: '18rem' }} | itemStyle={{ height: '300px', width: '300px' }} |
+|                 |                                                                                                                                                   |                                           |                                       |
+| **Type B**      | _props.type === 'B' 의 경우 사용 가능한 props들입니다._                                                                                           |
+| itemStyle       | List 내부의 item들의 사이즈를 지정합니다.<br> Height를 지정할 수 있습니다.                                                                        | Object({ height: string })                | {{ height: '18rem' }}                 | itemStyle={{ height: '300px' }}                 |
+| col             | List column의 item 개수를 지정합니다.                                                                                                             | number                                    | 4                                     | col={5}                                         |
 
 ### Css Customizing props
 
