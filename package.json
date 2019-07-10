@@ -3,6 +3,13 @@
   "version": "0.1.2",
   "description": "Components that allow you to selectively operate the List UI through keyboard input on the big screen",
   "main": "build/index.js",
+  "respository": {
+    "type": "git",
+    "url": "https://github.com/gyeol1212/React-List-UI.git"
+  },
+  "author": {
+    "name": "Hangyeol Shin"
+  },
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "react": "^16.8.6",
