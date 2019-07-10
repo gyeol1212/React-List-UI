@@ -14,21 +14,20 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 2.  사용 방법
 
-        ```javascript
-        import React from 'react';
-        import ListUI from 'react-list-ui';
+    ```javascript
+    import React from 'react';
+    import ListUI from 'react-list-ui';
 
-        const App = () => {
-          return (
-            <div className='App'>
-              <ListUI />
-            </div>
-          );
-        };
+    const App = () => {
+      return (
+        <div className='App'>
+          <ListUI />
+        </div>
+      );
+    };
 
-        export default App;
-
-        ```
+    export default App;
+    ```
 
     <hr />
 
