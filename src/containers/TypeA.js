@@ -90,7 +90,8 @@ const TypeA = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    itemComponent
   } = props;
 
   const divEl = useRef(null);
@@ -209,6 +210,7 @@ const TypeA = props => {
               itemStyle={itemStyle}
               onClickItem={clickDisable ? null : () => onClickItem(key)}
               itemCssObject={itemCssObject}
+              itemComponent={itemComponent}
             />
           );
         })}

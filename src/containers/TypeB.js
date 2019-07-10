@@ -107,7 +107,8 @@ const TypeB = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    itemComponent
   } = props;
 
   const N = col || 4;
@@ -258,6 +259,7 @@ const TypeB = props => {
               itemStyle={itemStyle}
               itemCssObject={itemCssObject}
               selectingAreaCssObject={selectingAreaCssObject}
+              itemComponent={itemComponent}
             />
           );
         })}

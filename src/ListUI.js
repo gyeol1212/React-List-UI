@@ -2,6 +2,8 @@ import React from 'react';
 import TypeA from './containers/TypeA';
 import TypeB from './containers/TypeB';
 
+import defaultItemComponent from './components/ItemDetail';
+
 const ListUI = props => {
   const {
     clickDisable,
@@ -17,12 +19,13 @@ const ListUI = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    itemComponent
   } = props;
 
   //type Default A
   const type = props.type || 'A';
-
+  // const itemComponent = props.itemComponent;
   return (
     <div>
       {type === 'A' ? (
@@ -39,6 +42,7 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
+          itemComponent={itemComponent}
         />
       ) : (
         <TypeB
@@ -56,6 +60,7 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
+          itemComponent={itemComponent}
         />
       )}
     </div>

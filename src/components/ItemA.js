@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import ItemDetail from './ItemDetail';
+import DefaultItemComponent from './ItemDetail';
 
 const ItemContainer = styled.div`
   width: ${props => `${props.width || '18rem'}`};
@@ -11,7 +11,14 @@ const ItemContainer = styled.div`
 `;
 
 const Item = props => {
-  const { isSelected, index, onClickItem, itemStyle, itemCssObject } = props;
+  const {
+    isSelected,
+    index,
+    onClickItem,
+    itemStyle,
+    itemCssObject,
+    itemComponent
+  } = props;
   const divEl = useRef(null);
 
   useEffect(() => {
@@ -36,7 +43,13 @@ const Item = props => {
       onClick={onClickItem}
       style={itemCssObject}
     >
-      <ItemDetail index={index} />
+      {/* <ItemDetail index={index} /> */}
+      {itemComponent ? (
+        // TODO : index 삭제
+        React.cloneElement(itemComponent, { index })
+      ) : (
+        <DefaultItemComponent index={index} />
+      )}
     </ItemContainer>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import ItemDetail from './ItemDetail';
+import DefaultItemComponent from './ItemDetail';
 
 const SelectingArea = styled.div`
   width: ${props => `${100 / props.col}%`};
@@ -27,7 +27,8 @@ const Content = props => {
     N,
     itemStyle,
     itemCssObject,
-    selectingAreaCssObject
+    selectingAreaCssObject,
+    itemComponent
   } = props;
 
   useEffect(() => {
@@ -66,7 +67,12 @@ const Content = props => {
       style={isSelected ? selectingAreaCssObject : null}
     >
       <ItemContainer style={itemCssObject}>
-        <ItemDetail index={index} />
+        {itemComponent ? (
+          // TODO : index 삭제
+          React.cloneElement(itemComponent, { index })
+        ) : (
+          <DefaultItemComponent index={index} />
+        )}
       </ItemContainer>
     </SelectingArea>
   );

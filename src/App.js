@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import ListUI from './ListUI';
+import DefaultItemComponent from './components/ItemDetail';
 
 const Container = styled.div`
   text-align: center;
@@ -45,6 +46,7 @@ function App() {
         // smoothScroll={true} // Default : false
         // overScroll={false} // Default : false
         // showResetButton={true} // Default : false
+        // itemComponent={<DefaultItemComponent />}
         ///////////
         // TypeA
         // itemStyle={{
