@@ -12,6 +12,7 @@ const ItemContainer = styled.div`
 
 const Item = props => {
   const {
+    item,
     isSelected,
     index,
     onClickItem,
@@ -46,7 +47,11 @@ const Item = props => {
       {/* <ItemDetail index={index} /> */}
       {itemComponent ? (
         // TODO : index 삭제
-        React.cloneElement(itemComponent, { index })
+        React.cloneElement(itemComponent, {
+          index,
+          ...itemComponent.props,
+          ...item
+        })
       ) : (
         <DefaultItemComponent index={index} />
       )}

@@ -29,15 +29,7 @@ const Subtitle = styled(Header)`
 const ContentDetail = props => {
   return (
     <ContentDiv>
-      <Header>
-        {' '}
-        {/* <img
-          src='https://picsum.photos/400/400'
-          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-          alt='img'
-        /> */}
-        {props.index}
-      </Header>
+      <Header>{props.name || props.index}</Header>
       <Title />
       <Subtitle />
     </ContentDiv>

@@ -15,8 +15,8 @@ const ItemsContainer = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
   margin: 20px;
-  /* TODO : 넣을지, 말지 */
   scroll-behavior: ${props => props.smoothScroll && 'smooth'};
+  text-align: left;
 `;
 
 const Title = styled.div`
@@ -79,6 +79,8 @@ const EndPoint = styled.div`
 
 const TypeA = props => {
   const {
+    itemList,
+    itemComponent,
     clickDisable,
     smoothScroll,
     overScroll,
@@ -90,15 +92,15 @@ const TypeA = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject,
-    itemComponent
+    endPointCssObject
   } = props;
 
   const divEl = useRef(null);
 
-  const itemList = [];
-  for (let i = 0; i < 10; i++) {
-    itemList.push('');
+  if (!itemList.length) {
+    for (let i = 0; i < 10; i++) {
+      itemList.push('');
+    }
   }
 
   const [selectedItemNum, setSelectedItemNum] = useState(0);
@@ -121,8 +123,11 @@ const TypeA = props => {
   // selectingArea 움직임 여부 판별 && 움직일 width 설정
   const onMoveSelectingArea = num => {
     // carousel 끝부분 판별
-    const clientWidth = divEl.current.clientWidth;
+    let clientWidth = divEl.current.clientWidth;
     const itemWidth = divEl.current.childNodes[2].clientWidth;
+    if (itemWidth * itemList.length < clientWidth) {
+      clientWidth = itemWidth * itemList.length;
+    }
     const scrollWidth = clientWidth - itemWidth * (itemList.length - num);
 
     setToBeScrollWidth(scrollWidth);
@@ -200,10 +205,10 @@ const TypeA = props => {
           smoothScroll={smoothScroll}
           style={selectingAreaCssObject}
         />
-        {itemList.map((list, key) => {
+        {itemList.map((item, key) => {
           return (
             <ItemA
-              content={list}
+              item={item}
               key={key}
               index={key}
               isSelected={selectedItemNum === key}

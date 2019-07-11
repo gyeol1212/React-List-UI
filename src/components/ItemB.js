@@ -21,6 +21,7 @@ const Content = props => {
   const divEl = useRef(null);
 
   const {
+    item,
     isSelected,
     index,
     onClickItem,
@@ -69,7 +70,11 @@ const Content = props => {
       <ItemContainer style={itemCssObject}>
         {itemComponent ? (
           // TODO : index 삭제
-          React.cloneElement(itemComponent, { index })
+          React.cloneElement(itemComponent, {
+            index,
+            ...itemComponent.props,
+            ...item
+          })
         ) : (
           <DefaultItemComponent index={index} />
         )}

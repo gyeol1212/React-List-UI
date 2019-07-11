@@ -2,10 +2,9 @@ import React from 'react';
 import TypeA from './containers/TypeA';
 import TypeB from './containers/TypeB';
 
-import defaultItemComponent from './components/ItemDetail';
-
 const ListUI = props => {
   const {
+    itemComponent,
     clickDisable,
     smoothScroll,
     overScroll,
@@ -19,17 +18,19 @@ const ListUI = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject,
-    itemComponent
+    endPointCssObject
   } = props;
 
   //type Default A
   const type = props.type || 'A';
-  // const itemComponent = props.itemComponent;
+  // itemList Default []
+  const itemList = props.itemList || [];
   return (
     <div>
       {type === 'A' ? (
         <TypeA
+          itemList={itemList}
+          itemComponent={itemComponent}
           clickDisable={clickDisable}
           smoothScroll={smoothScroll}
           overScroll={overScroll}
@@ -42,10 +43,11 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
-          itemComponent={itemComponent}
         />
       ) : (
         <TypeB
+          itemList={itemList}
+          itemComponent={itemComponent}
           clickDisable={clickDisable}
           smoothScroll={smoothScroll}
           overScroll={overScroll}
@@ -60,7 +62,6 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
-          itemComponent={itemComponent}
         />
       )}
     </div>

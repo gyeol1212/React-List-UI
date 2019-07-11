@@ -34,36 +34,13 @@ const Title = styled.div`
   }
 `;
 
-const InputField = styled.div`
-  margin-left: auto;
-  margin-right: 2rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  > input {
-    font-size: 1.2rem;
-    width: 40%;
-    text-align: right;
-    padding: 0.2rem 0.5rem;
-  }
-  > div {
-    border: 2px solid gray;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    margin-left: 0.5rem;
-    cursor: pointer;
-  }
-`;
-
 const ResetButton = styled.div`
   border: 2px solid gray;
   border-radius: 20px;
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   font-weight: bold;
-  margin: auto 1rem auto 0;
+  margin: auto 2rem auto auto;
   cursor: pointer;
 `;
 
@@ -94,6 +71,8 @@ const EndPoint = styled.div`
 
 const TypeB = props => {
   const {
+    itemList,
+    itemComponent,
     clickDisable,
     smoothScroll,
     overScroll,
@@ -107,47 +86,27 @@ const TypeB = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject,
-    itemComponent
+    endPointCssObject
   } = props;
 
   const N = col || 4;
 
   //// input에 입력한 값 적용
   // 초기 값 = 20
-  const initialItemList = [];
-  for (let i = 0; i < 20; i++) {
-    initialItemList.push('');
+  if (!itemList.length) {
+    for (let i = 0; i < 20; i++) {
+      itemList.push('');
+    }
   }
-
-  // inputChangeHandler
-  const [inputNumber, setInputNumber] = useState(0);
-
-  // itemList 설정
-  const [itemList, setItemList] = useState(initialItemList);
 
   const [isEndPoint, setIsEndPoint] = useState(false);
 
   // 선택된 Item Number
   const [selectedItemNum, setSelectedItemNum] = useState(0);
 
-  const inputChangeHandler = e => {
-    const { value } = e.target;
-    setInputNumber(value);
-  };
-
   // Reset Button 클릭
   const onClickReset = () => {
     setSelectedItemNum(0);
-  };
-
-  // click시, input에 입력된 값 적용
-  const applyNumber = () => {
-    let l = [];
-    for (let i = 0; i < inputNumber; i++) {
-      l.push('');
-    }
-    setItemList(l);
   };
 
   // click시, 선택
@@ -223,14 +182,6 @@ const TypeB = props => {
         <Title>
           TYPE B <span>: List</span>
         </Title>
-        <InputField>
-          <input
-            type='number'
-            placeholder='아이템 개수'
-            onChange={e => inputChangeHandler(e)}
-          />
-          <div onClick={applyNumber}>적용</div>
-        </InputField>
         {showResetButton && (
           <ResetButton onClick={onClickReset} style={resetButtonCssObject}>
             맨 위로
@@ -247,10 +198,10 @@ const TypeB = props => {
           bottom={isEndPoint === 'bottom'}
           style={endPointCssObject}
         />
-        {itemList.map((list, key) => {
+        {itemList.map((item, key) => {
           return (
             <ItemB
-              text={list}
+              item={item}
               index={key}
               key={key}
               isSelected={selectedItemNum === key}

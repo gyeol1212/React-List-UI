@@ -42,11 +42,20 @@ function App() {
         type={type ? 'A' : 'B'}
         //////////
         // 공통
-        // clickDisable={false} // Default : false
-        // smoothScroll={true} // Default : false
-        // overScroll={false} // Default : false
-        // showResetButton={true} // Default : false
-        // itemComponent={<DefaultItemComponent />}
+        itemList={
+          [
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 }
+          ]
+        }
+        itemComponent={<DefaultItemComponent />}
+        clickDisable={false} // Default : false
+        smoothScroll={true} // Default : false
+        overScroll={false} // Default : false
+        showResetButton={true} // Default : false
         ///////////
         // TypeA
         // itemStyle={{
