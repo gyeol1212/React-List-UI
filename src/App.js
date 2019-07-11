@@ -42,17 +42,15 @@ function App() {
         type={type ? 'A' : 'B'}
         //////////
         // 공통
-        itemList={
-          [
-            // { name: 'gyeol', age: 23 },
-            // { name: 'gyeol', age: 23 },
-            // { name: 'gyeol', age: 23 },
-            // { name: 'gyeol', age: 23 },
-            // { name: 'gyeol', age: 23 }
-          ]
-        }
+        itemList={[
+          { name: 'gyeol', age: 23 }
+          // { name: 'gyeol', age: 23 },
+          // { name: 'gyeol', age: 23 },
+          // { name: 'gyeol', age: 23 },
+          // { name: 'gyeol', age: 23 }
+        ]}
         itemComponent={<DefaultItemComponent />}
-        clickDisable={false} // Default : false
+        clickDisable={true} // Default : false
         smoothScroll={true} // Default : false
         overScroll={false} // Default : false
         showResetButton={true} // Default : false
@@ -64,18 +62,18 @@ function App() {
         // }}
         ////////////
         // TypeB
-        // itemStyle={{ height: '18rem' }}
-        // listStyle={{ height: '30rem' }}
-        // col={4} // Default : 4
+        itemStyle={{ height: '18rem' }}
+        listStyle={{ height: '30rem' }}
+        col={4} // Default : 4
         ///////////////////
         // CSS Customizing
-        // containerCssObject={{}}
-        // listCssObject={{}}
-        // itemCssObject={{}}
-        // selectingAreaCssObject={{}}
-        // headerCssObject={{}}
-        // resetButtonCssObject={{}}
-        // endPointCssObject={{}}
+        containerCssObject={{}}
+        listCssObject={{}}
+        itemCssObject={{}}
+        selectingAreaCssObject={{}}
+        headerCssObject={{}}
+        resetButtonCssObject={{}}
+        endPointCssObject={{}}
       />
     </Container>
   );

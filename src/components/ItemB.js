@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import DefaultItemComponent from './ItemDetail';
 
@@ -9,7 +10,7 @@ const SelectingArea = styled.div`
   box-sizing: border-box;
   display: inline-block;
   /* will-change: background-color; */
-  background-color: ${props => props.isSelected && 'skyblue'};
+  background-color: ${props => props.isSelected && 'rgb(182, 238, 238)'};
 `;
 
 const ItemContainer = styled.div`
@@ -17,7 +18,7 @@ const ItemContainer = styled.div`
   height: 100%;
 `;
 
-const Content = props => {
+const ItemB = props => {
   const divEl = useRef(null);
 
   const {
@@ -83,4 +84,16 @@ const Content = props => {
   );
 };
 
-export default Content;
+ItemB.propTypes = {
+  item: PropTypes.object,
+  index: PropTypes.number,
+  isSelected: PropTypes.bool,
+  itemStyle: PropTypes.object,
+  onClickItem: PropTypes.func,
+  itemCssObject: PropTypes.object,
+  itemComponent: PropTypes.element,
+  selectingAreaCssObject: PropTypes.object,
+  N: PropTypes.number
+};
+
+export default ItemB;

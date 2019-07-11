@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import ItemB from '../components/ItemB';
 
 import useKeyPress from '../Hooks/useKeyPress';
@@ -91,11 +93,10 @@ const TypeB = props => {
 
   const N = col || 4;
 
-  //// input에 입력한 값 적용
   // 초기 값 = 20
   if (!itemList.length) {
     for (let i = 0; i < 20; i++) {
-      itemList.push('');
+      itemList.push({});
     }
   }
 
@@ -173,7 +174,6 @@ const TypeB = props => {
         }
       }
     }
-    console.log(isEndPoint);
   }, [rightPress, leftPress, downPress, upPress]);
 
   return (
@@ -217,6 +217,29 @@ const TypeB = props => {
       </ItemsContainer>
     </TypeContainer>
   );
+};
+
+TypeB.propTypes = {
+  itemList: PropTypes.arrayOf(Object),
+  itemComponent: PropTypes.element,
+  clickDisable: PropTypes.bool,
+  smoothScroll: PropTypes.bool,
+  overScroll: PropTypes.bool,
+  showResetButton: PropTypes.bool,
+  itemStyle: PropTypes.shape({
+    height: PropTypes.string
+  }),
+  listStyle: PropTypes.shape({
+    height: PropTypes.string
+  }),
+  col: PropTypes.number,
+  containerCssObject: PropTypes.object,
+  listCssObject: PropTypes.object,
+  itemCssObject: PropTypes.object,
+  selectingAreaCssObject: PropTypes.object,
+  headerCssObject: PropTypes.object,
+  resetButtonCssObject: PropTypes.object,
+  endPointCssObject: PropTypes.object
 };
 
 export default TypeB;

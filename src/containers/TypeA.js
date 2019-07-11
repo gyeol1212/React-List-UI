@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
 import ItemA from '../components/ItemA';
 import useKeyPress from '../Hooks/useKeyPress';
@@ -97,9 +99,10 @@ const TypeA = props => {
 
   const divEl = useRef(null);
 
+  // 초기값 10
   if (!itemList.length) {
     for (let i = 0; i < 10; i++) {
-      itemList.push('');
+      itemList.push({});
     }
   }
 
@@ -222,6 +225,27 @@ const TypeA = props => {
       </ItemsContainer>
     </TypeContainer>
   );
+};
+
+TypeA.propTypes = {
+  itemList: PropTypes.arrayOf(Object),
+  itemComponent: PropTypes.element,
+  clickDisable: PropTypes.bool,
+  smoothScroll: PropTypes.bool,
+  overScroll: PropTypes.bool,
+  showResetButton: PropTypes.bool,
+  itemStyle: PropTypes.shape({
+    height: PropTypes.string,
+    width: PropTypes.string
+  }),
+  col: PropTypes.number,
+  containerCssObject: PropTypes.object,
+  listCssObject: PropTypes.object,
+  itemCssObject: PropTypes.object,
+  selectingAreaCssObject: PropTypes.object,
+  headerCssObject: PropTypes.object,
+  resetButtonCssObject: PropTypes.object,
+  endPointCssObject: PropTypes.object
 };
 
 export default TypeA;

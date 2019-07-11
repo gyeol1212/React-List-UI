@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import DefaultItemComponent from './ItemDetail';
 
@@ -10,7 +11,7 @@ const ItemContainer = styled.div`
   display: inline-block;
 `;
 
-const Item = props => {
+const ItemA = props => {
   const {
     item,
     isSelected,
@@ -20,6 +21,7 @@ const Item = props => {
     itemCssObject,
     itemComponent
   } = props;
+
   const divEl = useRef(null);
 
   useEffect(() => {
@@ -59,4 +61,14 @@ const Item = props => {
   );
 };
 
-export default Item;
+ItemA.propTypes = {
+  item: PropTypes.object,
+  index: PropTypes.number,
+  isSelected: PropTypes.bool,
+  itemStyle: PropTypes.object,
+  onClickItem: PropTypes.func,
+  itemCssObject: PropTypes.object,
+  itemComponent: PropTypes.element
+};
+
+export default ItemA;
