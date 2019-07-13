@@ -86,11 +86,11 @@ ListUI.propTypes = {
   smoothScroll: PropTypes.bool,
   overScroll: PropTypes.bool,
   showResetButton: PropTypes.bool,
-  itemStyle: PropTypes.shape({
+  itemStyle: PropTypes.exact({
     height: PropTypes.string,
     width: PropTypes.string
   }),
-  listStyle: PropTypes.shape({
+  listStyle: PropTypes.exact({
     height: PropTypes.string
   }),
   col: PropTypes.number,

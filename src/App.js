@@ -69,9 +69,9 @@ function App() {
         // }}
         ////////////
         // TypeB
-        itemStyle={{ height: '18rem' }}
-        listStyle={{ height: '30rem' }}
-        col={4} // Default : 4
+        // itemStyle={{ height: '18rem' }}
+        // listStyle={{ height: '30rem' }}
+        // col={4} // Default : 4
         ///////////////////
         // CSS Customizing
         containerCssObject={{}}
