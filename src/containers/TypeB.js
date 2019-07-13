@@ -71,6 +71,10 @@ const EndPoint = styled.div`
   }
 `;
 
+const FlexDiv = styled.div`
+  display: flex;
+`;
+
 const TypeB = props => {
   const {
     itemList,
@@ -178,7 +182,7 @@ const TypeB = props => {
 
   return (
     <TypeContainer style={containerCssObject}>
-      <div style={{ display: 'flex', ...headerCssObject }}>
+      <FlexDiv style={headerCssObject}>
         <Title>
           TYPE B <span>: List</span>
         </Title>
@@ -187,7 +191,7 @@ const TypeB = props => {
             맨 위로
           </ResetButton>
         )}
-      </div>
+      </FlexDiv>
       <ItemsContainer
         height={listStyle && listStyle.height}
         smoothScroll={smoothScroll}

@@ -1,0 +1,273 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListUI match snapshot 1`] = `
+<div
+  className="sc-fzXfMw gjWSoX"
+>
+  <div
+    className="sc-fzXfMx jRhdYq"
+  >
+    List UI
+  </div>
+  <div
+    className="sc-fzXfMy gnCCGm"
+    onClick={[Function]}
+  >
+    TYPE A
+  </div>
+  <div
+    className="sc-fzXfMy gnCCGm"
+    onClick={[Function]}
+  >
+    TYPE B
+  </div>
+  <div
+    className="sc-AykKH gpUORi"
+    style={Object {}}
+  >
+    <div
+      className="sc-fzXfLQ bnkEcz"
+      style={Object {}}
+    >
+      <div
+        className="sc-AykKJ cuaOwf"
+      >
+        TYPE A 
+        <span>
+          : Carousel 
+        </span>
+      </div>
+      <div
+        className="sc-fzXfLO dmwtOU"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        맨 위로
+      </div>
+    </div>
+    <div
+      className="sc-AykKI jRzXmZ"
+      style={Object {}}
+    >
+      <div
+        className="sc-fzXfLP hqnvde"
+        style={Object {}}
+      />
+      <div
+        className="sc-AykKK feOmNh"
+        style={Object {}}
+      />
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            0
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            1
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            2
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            3
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            4
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            5
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            6
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            7
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            8
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+      <div
+        className="sc-AykKG fmSQbP"
+        onClick={null}
+        style={Object {}}
+      >
+        <div
+          className="sc-AykKC ctRmSy"
+        >
+          <div
+            className="sc-AykKD cCRaZj"
+          >
+            9
+          </div>
+          <div
+            className="sc-AykKD sc-AykKE jTrkiM"
+          />
+          <div
+            className="sc-AykKD sc-AykKF frZAto"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

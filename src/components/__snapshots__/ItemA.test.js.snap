@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item A match snapshot 1`] = `
+<ItemA>
+  <styled.div>
+    <div
+      className="sc-AykKG fmSQbP"
+    >
+      <ContentDetail>
+        <styled.div>
+          <div
+            className="sc-AykKC ctRmSy"
+          >
+            <styled.div>
+              <div
+                className="sc-AykKD cCRaZj"
+              />
+            </styled.div>
+            <Styled(styled.div)>
+              <div
+                className="sc-AykKD sc-AykKE jTrkiM"
+              />
+            </Styled(styled.div)>
+            <Styled(styled.div)>
+              <div
+                className="sc-AykKD sc-AykKF frZAto"
+              />
+            </Styled(styled.div)>
+          </div>
+        </styled.div>
+      </ContentDetail>
+    </div>
+  </styled.div>
+</ItemA>
+`;

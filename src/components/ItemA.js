@@ -34,7 +34,7 @@ const ItemA = props => {
       const carouselLeft = divEl.current.parentNode.clientLeft;
 
       // carousel의 왼쪽 좌표 + ( content의 width X content 갯수 )
-      divEl.current.parentNode.scrollTo(carouselLeft + contentWidth * index, 0);
+      divEl.current.parentNode.scrollLeft = carouselLeft + contentWidth * index;
     }
   }, [isSelected, index]);
 

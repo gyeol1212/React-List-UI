@@ -47,14 +47,12 @@ const ItemB = props => {
 
       // item의 아랫부분이 전부 보이지 않을 경우?
       if (scrollBottom < contentHeight * (n + 1)) {
-        divEl.current.parentNode.scrollTo(
-          0,
-          contentHeight * (n + 1) - listHeight
-        );
+        divEl.current.parentNode.scrollTop =
+          contentHeight * (n + 1) - listHeight;
       }
       // item의 윗부분이 전부 보이지 않을 경우
       if (scrollTop > contentHeight * n) {
-        divEl.current.parentNode.scrollTo(0, contentHeight * n);
+        divEl.current.parentNode.scrollTop = contentHeight * n;
       }
     }
   }, [N, index, isSelected]);

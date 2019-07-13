@@ -79,6 +79,10 @@ const EndPoint = styled.div`
   }
 `;
 
+const FlexDiv = styled.div`
+  display: flex;
+`;
+
 const TypeA = props => {
   const {
     itemList,
@@ -180,7 +184,7 @@ const TypeA = props => {
 
   return (
     <TypeContainer style={containerCssObject}>
-      <div style={{ display: 'flex', ...headerCssObject }}>
+      <FlexDiv style={headerCssObject}>
         <Title>
           TYPE A <span>: Carousel </span>
         </Title>
@@ -189,7 +193,7 @@ const TypeA = props => {
             맨 위로
           </ResetButton>
         )}
-      </div>
+      </FlexDiv>
       <ItemsContainer
         ref={divEl}
         smoothScroll={smoothScroll}

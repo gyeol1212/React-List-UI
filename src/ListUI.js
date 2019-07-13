@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import TypeA from './containers/TypeA';
@@ -30,7 +30,7 @@ const ListUI = props => {
   // itemList Default []
   // const itemList = props.itemList || [];
   return (
-    <div>
+    <Fragment>
       {type === 'A' ? (
         <TypeA
           itemList={itemList}
@@ -68,7 +68,7 @@ const ListUI = props => {
           endPointCssObject={endPointCssObject}
         />
       ) : null}
-    </div>
+    </Fragment>
   );
 };
 
