@@ -7,8 +7,8 @@ import useKeyPress from '../Hooks/useKeyPress';
 
 const TypeContainer = styled.div`
   border: 1px solid black;
-  margin: 20px auto;
-  padding: 30px 5px;
+  margin: 1.5rem auto;
+  padding: 2rem 0.5rem;
   border-radius: 10px;
   position: relative;
 `;
@@ -16,7 +16,7 @@ const TypeContainer = styled.div`
 const ItemsContainer = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 20px;
+  margin: 1.5rem;
   scroll-behavior: ${props => props.smoothScroll && 'smooth'};
   text-align: left;
 `;
@@ -55,7 +55,7 @@ const ResetButton = styled.div`
 `;
 
 const EndPoint = styled.div`
-  width: 20px;
+  width: 1.5rem;
   height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;

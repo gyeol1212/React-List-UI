@@ -9,15 +9,15 @@ import useKeyPress from '../Hooks/useKeyPress';
 
 const TypeContainer = styled.div`
   border: 1px solid black;
-  margin: 20px 100px;
-  padding: 30px 0;
+  margin: 1.5rem auto;
+  padding: 2rem 0;
   border-radius: 10px;
   position: relative;
 `;
 
 const ItemsContainer = styled.div`
   overflow: scroll;
-  margin: 20px;
+  margin: 1.5rem;
   height: ${props => `${props.height || '30rem'}`};
   display: flex;
   flex-wrap: wrap;
@@ -48,14 +48,14 @@ const ResetButton = styled.div`
 
 const EndPoint = styled.div`
   width: 100%;
-  height: 20px;
+  height: 1.5rem;
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
   background-color: lightgray;
   opacity: 0;
   left: 0;
-  bottom: ${props => props.bottom && '30px'};
+  bottom: ${props => props.bottom && '2rem'};
   z-index: 1;
   animation: ${props => props.isEndPoint && 'blink 0.5s linear'};
   @keyframes blink {

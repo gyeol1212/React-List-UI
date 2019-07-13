@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './App.css';
+
 import styled from 'styled-components';
 
 import ListUI from './ListUI';
@@ -8,6 +10,9 @@ import DefaultItemComponent from './components/ItemDetail';
 const Container = styled.div`
   text-align: center;
   margin: 50px 100px;
+  @media (max-width: 960px) {
+    margin: 50px 20px;
+  }
 `;
 
 const Title = styled.div`
@@ -42,13 +47,15 @@ function App() {
         type={type ? 'A' : 'B'}
         //////////
         // 공통
-        itemList={[
-          { name: 'gyeol', age: 23 }
-          // { name: 'gyeol', age: 23 },
-          // { name: 'gyeol', age: 23 },
-          // { name: 'gyeol', age: 23 },
-          // { name: 'gyeol', age: 23 }
-        ]}
+        itemList={
+          [
+            // { name: 'gyeol', age: 23 }
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 },
+            // { name: 'gyeol', age: 23 }
+          ]
+        }
         itemComponent={<DefaultItemComponent />}
         clickDisable={true} // Default : false
         smoothScroll={true} // Default : false
