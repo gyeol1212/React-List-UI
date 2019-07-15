@@ -92,7 +92,14 @@ const TypeB = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    containerClassName,
+    listClassName,
+    itemClassName,
+    selectingAreaClassName,
+    headerClassName,
+    resetButtonClassName,
+    endPointClassName,
   } = props;
 
   const N = col || 4;
@@ -181,14 +188,18 @@ const TypeB = props => {
   }, [rightPress, leftPress, downPress, upPress]);
 
   return (
-    <TypeContainer style={containerCssObject}>
-      <FlexDiv style={headerCssObject}>
+    <TypeContainer style={containerCssObject} className={containerClassName}>
+      <FlexDiv style={headerCssObject} className={headerClassName}>
         <Title>
           TYPE B <span>: List</span>
         </Title>
         {showResetButton && (
-          <ResetButton onClick={onClickReset} style={resetButtonCssObject}>
-            맨 위로
+          <ResetButton
+            onClick={onClickReset}
+            style={resetButtonCssObject}
+            className={resetButtonClassName}
+          >
+            처음으로
           </ResetButton>
         )}
       </FlexDiv>
@@ -196,11 +207,13 @@ const TypeB = props => {
         height={listStyle && listStyle.height}
         smoothScroll={smoothScroll}
         style={listCssObject}
+        className={listClassName}
       >
         <EndPoint
           isEndPoint={isEndPoint}
           bottom={isEndPoint === 'bottom'}
           style={endPointCssObject}
+          className={endPointClassName}
         />
         {itemList.map((item, key) => {
           return (
@@ -214,6 +227,8 @@ const TypeB = props => {
               itemStyle={itemStyle}
               itemCssObject={itemCssObject}
               selectingAreaCssObject={selectingAreaCssObject}
+              itemClassName={itemClassName}
+              selectingAreaClassName={selectingAreaClassName}
               itemComponent={itemComponent}
             />
           );
@@ -231,10 +246,10 @@ TypeB.propTypes = {
   overScroll: PropTypes.bool,
   showResetButton: PropTypes.bool,
   itemStyle: PropTypes.shape({
-    height: PropTypes.string
+    height: PropTypes.string,
   }),
   listStyle: PropTypes.shape({
-    height: PropTypes.string
+    height: PropTypes.string,
   }),
   col: PropTypes.number,
   containerCssObject: PropTypes.object,
@@ -243,7 +258,14 @@ TypeB.propTypes = {
   selectingAreaCssObject: PropTypes.object,
   headerCssObject: PropTypes.object,
   resetButtonCssObject: PropTypes.object,
-  endPointCssObject: PropTypes.object
+  endPointCssObject: PropTypes.object,
+  containerClassName: PropTypes.string,
+  listClassName: PropTypes.string,
+  itemClassName: PropTypes.string,
+  selectingAreaClassName: PropTypes.string,
+  headerClassName: PropTypes.string,
+  resetButtonClassName: PropTypes.string,
+  endPointClassName: PropTypes.string,
 };
 
 export default TypeB;

@@ -57,7 +57,7 @@ function App() {
           ]
         }
         itemComponent={<DefaultItemComponent />}
-        clickDisable={true} // Default : false
+        clickDisable={false} // Default : false
         smoothScroll={true} // Default : false
         overScroll={false} // Default : false
         showResetButton={true} // Default : false
@@ -73,14 +73,24 @@ function App() {
         // listStyle={{ height: '30rem' }}
         // col={4} // Default : 4
         ///////////////////
+
         // CSS Customizing
-        containerCssObject={{}}
-        listCssObject={{}}
-        itemCssObject={{}}
-        selectingAreaCssObject={{}}
-        headerCssObject={{}}
-        resetButtonCssObject={{}}
-        endPointCssObject={{}}
+        // containerCssObject={{}}
+        // listCssObject={{}}
+        // itemCssObject={{}}
+        // selectingAreaCssObject={{}}
+        // headerCssObject={{}}
+        // resetButtonCssObject={{}}
+        // endPointCssObject={{}}
+
+        // className Customizing
+        // containerClassName={''}
+        // listClassName={''}
+        // itemClassName={''}
+        // selectingAreaClassName={''}
+        // headerClassName={''}
+        // resetButtonClassName={''}
+        // endPointClassName={''}
       />
     </Container>
   );

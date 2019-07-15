@@ -19,7 +19,8 @@ const ItemA = props => {
     onClickItem,
     itemStyle,
     itemCssObject,
-    itemComponent
+    itemClassName,
+    itemComponent,
   } = props;
 
   const divEl = useRef(null);
@@ -45,6 +46,7 @@ const ItemA = props => {
       height={itemStyle && itemStyle.height}
       onClick={onClickItem}
       style={itemCssObject}
+      className={itemClassName}
     >
       {/* <ItemDetail index={index} /> */}
       {itemComponent ? (
@@ -52,7 +54,7 @@ const ItemA = props => {
         React.cloneElement(itemComponent, {
           index,
           ...itemComponent.props,
-          ...item
+          ...item,
         })
       ) : (
         <DefaultItemComponent index={index} />
@@ -68,7 +70,8 @@ ItemA.propTypes = {
   itemStyle: PropTypes.object,
   onClickItem: PropTypes.func,
   itemCssObject: PropTypes.object,
-  itemComponent: PropTypes.element
+  itemClassName: PropTypes.string,
+  itemComponent: PropTypes.element,
 };
 
 export default ItemA;

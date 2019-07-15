@@ -29,8 +29,10 @@ const ItemB = props => {
     N,
     itemStyle,
     itemCssObject,
+    itemClassName,
     selectingAreaCssObject,
-    itemComponent
+    selectingAreaClassName,
+    itemComponent,
   } = props;
 
   useEffect(() => {
@@ -38,8 +40,8 @@ const ItemB = props => {
       const {
         current: {
           offsetHeight: contentHeight,
-          parentNode: { scrollTop, clientHeight: listHeight }
-        }
+          parentNode: { scrollTop, clientHeight: listHeight },
+        },
       } = divEl;
       const scrollBottom = scrollTop + listHeight;
 
@@ -65,14 +67,15 @@ const ItemB = props => {
       col={N}
       height={itemStyle && itemStyle.height}
       style={isSelected ? selectingAreaCssObject : null}
+      className={isSelected ? selectingAreaClassName : null}
     >
-      <ItemContainer style={itemCssObject}>
+      <ItemContainer style={itemCssObject} className={itemClassName}>
         {itemComponent ? (
           // TODO : index 삭제
           React.cloneElement(itemComponent, {
             index,
             ...itemComponent.props,
-            ...item
+            ...item,
           })
         ) : (
           <DefaultItemComponent index={index} />
@@ -89,9 +92,11 @@ ItemB.propTypes = {
   itemStyle: PropTypes.object,
   onClickItem: PropTypes.func,
   itemCssObject: PropTypes.object,
+  itemClassName: PropTypes.string,
   itemComponent: PropTypes.element,
   selectingAreaCssObject: PropTypes.object,
-  N: PropTypes.number
+  selectingAreaClassName: PropTypes.string,
+  N: PropTypes.number,
 };
 
 export default ItemB;

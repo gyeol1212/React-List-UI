@@ -22,7 +22,14 @@ const ListUI = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    containerClassName,
+    listClassName,
+    itemClassName,
+    selectingAreaClassName,
+    headerClassName,
+    resetButtonClassName,
+    endPointClassName,
   } = props;
 
   //type Default A
@@ -47,6 +54,13 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
+          containerClassName={containerClassName}
+          listClassName={listClassName}
+          itemClassName={itemClassName}
+          selectingAreaClassName={selectingAreaClassName}
+          headerClassName={headerClassName}
+          resetButtonClassName={resetButtonClassName}
+          endPointClassName={endPointClassName}
         />
       ) : type === 'B' ? (
         <TypeB
@@ -66,6 +80,13 @@ const ListUI = props => {
           headerCssObject={headerCssObject}
           resetButtonCssObject={resetButtonCssObject}
           endPointCssObject={endPointCssObject}
+          containerClassName={containerClassName}
+          listClassName={listClassName}
+          itemClassName={itemClassName}
+          selectingAreaClassName={selectingAreaClassName}
+          headerClassName={headerClassName}
+          resetButtonClassName={resetButtonClassName}
+          endPointClassName={endPointClassName}
         />
       ) : null}
     </Fragment>
@@ -74,7 +95,7 @@ const ListUI = props => {
 
 ListUI.defaultProps = {
   // type: 'A',
-  itemList: []
+  itemList: [],
 };
 
 // eslint-disable-next-line react/no-typos
@@ -88,10 +109,10 @@ ListUI.propTypes = {
   showResetButton: PropTypes.bool,
   itemStyle: PropTypes.exact({
     height: PropTypes.string,
-    width: PropTypes.string
+    width: PropTypes.string,
   }),
   listStyle: PropTypes.exact({
-    height: PropTypes.string
+    height: PropTypes.string,
   }),
   col: PropTypes.number,
   containerCssObject: PropTypes.object,
@@ -100,7 +121,14 @@ ListUI.propTypes = {
   selectingAreaCssObject: PropTypes.object,
   headerCssObject: PropTypes.object,
   resetButtonCssObject: PropTypes.object,
-  endPointCssObject: PropTypes.object
+  endPointCssObject: PropTypes.object,
+  containerClassName: PropTypes.string,
+  listClassName: PropTypes.string,
+  itemClassName: PropTypes.string,
+  selectingAreaClassName: PropTypes.string,
+  headerClassName: PropTypes.string,
+  resetButtonClassName: PropTypes.string,
+  endPointClassName: PropTypes.string,
 };
 
 export default ListUI;

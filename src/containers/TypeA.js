@@ -98,7 +98,14 @@ const TypeA = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject
+    endPointCssObject,
+    containerClassName,
+    listClassName,
+    itemClassName,
+    selectingAreaClassName,
+    headerClassName,
+    resetButtonClassName,
+    endPointClassName,
   } = props;
 
   const divEl = useRef(null);
@@ -183,14 +190,18 @@ const TypeA = props => {
   }, [leftPress, rightPress]);
 
   return (
-    <TypeContainer style={containerCssObject}>
-      <FlexDiv style={headerCssObject}>
+    <TypeContainer style={containerCssObject} className={containerClassName}>
+      <FlexDiv style={headerCssObject} className={headerClassName}>
         <Title>
           TYPE A <span>: Carousel </span>
         </Title>
         {showResetButton && (
-          <ResetButton onClick={onClickReset} style={resetButtonCssObject}>
-            맨 위로
+          <ResetButton
+            onClick={onClickReset}
+            style={resetButtonCssObject}
+            className={resetButtonClassName}
+          >
+            처음으로
           </ResetButton>
         )}
       </FlexDiv>
@@ -198,12 +209,14 @@ const TypeA = props => {
         ref={divEl}
         smoothScroll={smoothScroll}
         style={listCssObject}
+        className={listClassName}
       >
         <EndPoint
           height={itemStyle && itemStyle.height}
           right={isEndPoint === 'right'}
           isEndPoint={isEndPoint}
           style={endPointCssObject}
+          className={endPointClassName}
         />
         <SelectingArea
           width={itemStyle && itemStyle.width}
@@ -211,6 +224,7 @@ const TypeA = props => {
           toBeScrollWidth={toBeScrollWidth}
           smoothScroll={smoothScroll}
           style={selectingAreaCssObject}
+          className={selectingAreaClassName}
         />
         {itemList.map((item, key) => {
           return (
@@ -222,6 +236,7 @@ const TypeA = props => {
               itemStyle={itemStyle}
               onClickItem={clickDisable ? null : () => onClickItem(key)}
               itemCssObject={itemCssObject}
+              itemClassName={itemClassName}
               itemComponent={itemComponent}
             />
           );
@@ -240,7 +255,7 @@ TypeA.propTypes = {
   showResetButton: PropTypes.bool,
   itemStyle: PropTypes.shape({
     height: PropTypes.string,
-    width: PropTypes.string
+    width: PropTypes.string,
   }),
   col: PropTypes.number,
   containerCssObject: PropTypes.object,
@@ -249,7 +264,14 @@ TypeA.propTypes = {
   selectingAreaCssObject: PropTypes.object,
   headerCssObject: PropTypes.object,
   resetButtonCssObject: PropTypes.object,
-  endPointCssObject: PropTypes.object
+  endPointCssObject: PropTypes.object,
+  containerClassName: PropTypes.string,
+  listClassName: PropTypes.string,
+  itemClassName: PropTypes.string,
+  selectingAreaClassName: PropTypes.string,
+  headerClassName: PropTypes.string,
+  resetButtonClassName: PropTypes.string,
+  endPointClassName: PropTypes.string,
 };
 
 export default TypeA;
