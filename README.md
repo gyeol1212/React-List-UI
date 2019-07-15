@@ -58,7 +58,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 ### Css Customizing props
 
-_CSS를 Customizing하기 위한 Props들 입니다._
+#### _CSS를 Customizing하기 위한 Props들 입니다._
 
 | Props                    | Description                     | type   |
 | :----------------------- | :------------------------------ | :----- |
@@ -73,6 +73,32 @@ _CSS를 Customizing하기 위한 Props들 입니다._
 ```javascript
 // CSS customizing props example
 <ListUI containerCssObject={{ backgroundColor: 'red' }} />
+```
+
+#### _Customizing한 ClassName을 추가할 수 있습니다._
+
+| Props                    | Description                             | type   |
+| :----------------------- | :-------------------------------------- | :----- |
+| `containerClassName`     | container에 ClassName을 추가합니다.     | String |
+| `listClassName`          | list에 ClassName을 추가합니다.          | String |
+| `itemClassName`          | item에 ClassName을 추가합니다.          | String |
+| `selectingAreaClassName` | selectingArea에 ClassName을 추가합니다. | String |
+| `headerClassName`        | header에 ClassName을 추가합니다.        | String |
+| `resetButtonClassName`   | resetButton에 ClassName을 추가합니다.   | String |
+| `endPointClassName`      | endPoint에 ClassName을 추가합니다.      | String |
+
+> _이 Component는 styled-component를 사용하고 있습니다. className을 이용하여 styled-component보다 우선해 적용하고 싶다면 아래와 같이 사용하세요._
+
+```javascript
+// Add class props example
+
+// app.js
+<ListUI containerClassName='customClassName' />
+
+// app.css
+.customClassName.customClassName {
+  background-color: red;
+}
 ```
 
 <hr />
