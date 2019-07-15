@@ -1,13 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import ItemB from './ItemB';
+import ItemA from '../components/ItemA';
 
-describe('Item B', () => {
+describe('Item A', () => {
   let wrapper;
 
   it('renders Item A', () => {
-    wrapper = mount(<ItemB />);
+    wrapper = mount(<ItemA />);
     expect(wrapper).toHaveLength(1);
   });
 

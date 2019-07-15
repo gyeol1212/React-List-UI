@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import ListUI from './ListUI';
+import ListUI from '../ListUI';
 
 describe('ListUI', () => {
   let wrapper = null;

@@ -3,6 +3,7 @@
 exports[`Item B match snapshot 1`] = `
 <ItemB>
   <styled.div
+    className={null}
     style={null}
   >
     <div

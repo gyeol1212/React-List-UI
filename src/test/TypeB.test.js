@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
-import TypeA from './TypeA';
+import TypeB from '../containers/TypeB';
 
 describe('Type A', () => {
   let wrapper;
@@ -13,10 +13,10 @@ describe('Type A', () => {
     { index: 5 },
   ];
 
-  it('renders Type A', () => {
-    wrapper = mount(<TypeA itemList={itemList} />);
+  it('renders Type B', () => {
+    wrapper = mount(<TypeB itemList={itemList} />);
     expect(wrapper).toHaveLength(1);
 
-    expect(wrapper.find('ItemA')).toHaveLength(itemList.length);
+    expect(wrapper.find('ItemB')).toHaveLength(itemList.length);
   });
 });

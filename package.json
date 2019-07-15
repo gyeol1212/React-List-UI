@@ -21,8 +21,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "webpack",
-    "test": "react-scripts test --env=jsdom --coverage",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "coverage": "npm test -- --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": "react-app"
