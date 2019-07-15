@@ -1,6 +1,6 @@
 {
   "name": "react-list-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Components that allow you to selectively operate the List UI through keyboard input on the big screen",
   "main": "build/index.js",
   "license": "MIT",
