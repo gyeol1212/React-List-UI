@@ -103,4 +103,12 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 <hr />
 
+## LET'S TEST
+
+### _다양한 props를 직접 넣으면서 Test해보세요_
+
+[![Edit react-list-ui Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-list-ui-example-xkqrv?fontsize=14)
+
+<hr />
+
 ### 추후 추가
