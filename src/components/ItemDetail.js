@@ -30,7 +30,7 @@ const ContentDetail = props => {
   return (
     <ContentDiv>
       {/* TODO : index 삭제 */}
-      <Header />
+      <Header>{props.index}</Header>
       <Title />
       <Subtitle />
     </ContentDiv>

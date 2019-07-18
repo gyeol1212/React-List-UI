@@ -6,6 +6,22 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 > **This project is currently under development. The above may be changed at any time.**
 
+#### _Type A_
+
+![TypeAImage](./example/typeA.gif)
+
+#### _Type B_
+
+![TypeBImage](./example/typeB.gif)
+
+#### _`smoothScroll=true`_
+
+![smoothScroll](./example/smoothScroll.gif)
+
+#### _`overScroll=true`_
+
+![overScroll](./example/overScroll.gif)
+
 <hr />
 
 ## how to Use
