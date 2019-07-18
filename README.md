@@ -92,14 +92,20 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 ```javascript
 // Add class props example
 
+
 // app.js
 <ListUI containerClassName='customClassName' />
+
 
 // app.css
 .customClassName.customClassName {
   background-color: red;
 }
 ```
+
+### _이 Component의 구조는 아래 이미지를 참고하세요._
+
+![ComponentStructure](./example/structure.jpeg)
 
 <hr />
 
