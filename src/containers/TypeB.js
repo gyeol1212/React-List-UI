@@ -17,7 +17,7 @@ const TypeContainer = styled.div`
 
 const ItemsContainer = styled.div`
   overflow: scroll;
-  margin: 1.5rem;
+  margin: ${props => (props.focusOn ? '2rem' : '1.5rem')};
   height: ${props => `${props.height || '30rem'}`};
   display: flex;
   flex-wrap: wrap;
@@ -83,6 +83,7 @@ const TypeB = props => {
     smoothScroll,
     overScroll,
     showResetButton,
+    focusOn,
     itemStyle,
     listStyle,
     col,
@@ -197,8 +198,7 @@ const TypeB = props => {
           <ResetButton
             onClick={onClickReset}
             style={resetButtonCssObject}
-            className={resetButtonClassName}
-          >
+            className={resetButtonClassName}>
             처음으로
           </ResetButton>
         )}
@@ -206,9 +206,9 @@ const TypeB = props => {
       <ItemsContainer
         height={listStyle && listStyle.height}
         smoothScroll={smoothScroll}
+        focusOn={focusOn}
         style={listCssObject}
-        className={listClassName}
-      >
+        className={listClassName}>
         <EndPoint
           isEndPoint={isEndPoint}
           bottom={isEndPoint === 'bottom'}
@@ -222,6 +222,7 @@ const TypeB = props => {
               index={key}
               key={key}
               isSelected={selectedItemNum === key}
+              focusOn={focusOn}
               onClickItem={clickDisable ? null : () => onClickItem(key)}
               N={N}
               itemStyle={itemStyle}
@@ -245,6 +246,7 @@ TypeB.propTypes = {
   smoothScroll: PropTypes.bool,
   overScroll: PropTypes.bool,
   showResetButton: PropTypes.bool,
+  focusOn: PropTypes.bool,
   itemStyle: PropTypes.shape({
     height: PropTypes.string,
   }),

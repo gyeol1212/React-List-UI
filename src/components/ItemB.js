@@ -10,7 +10,9 @@ const SelectingArea = styled.div`
   box-sizing: border-box;
   display: inline-block;
   /* will-change: background-color; */
-  background-color: ${props => props.isSelected && 'rgb(182, 238, 238)'};
+  background-color: ${props => !props.focusOn && props.isSelected && 'rgb(182, 238, 238)'};
+  transform: ${props => (props.focusOn ? (props.isSelected ? `scale(1.1)` : 'scale(0.85)') : null)};
+  transition: ${props => props.focusOn && 'all 0.3s ease'};
 `;
 
 const ItemContainer = styled.div`
@@ -24,6 +26,7 @@ const ItemB = props => {
   const {
     item,
     isSelected,
+    focusOn,
     index,
     onClickItem,
     N,
@@ -49,8 +52,7 @@ const ItemB = props => {
 
       // item의 아랫부분이 전부 보이지 않을 경우?
       if (scrollBottom < contentHeight * (n + 1)) {
-        divEl.current.parentNode.scrollTop =
-          contentHeight * (n + 1) - listHeight;
+        divEl.current.parentNode.scrollTop = contentHeight * (n + 1) - listHeight;
       }
       // item의 윗부분이 전부 보이지 않을 경우
       if (scrollTop > contentHeight * n) {
@@ -62,13 +64,13 @@ const ItemB = props => {
   return (
     <SelectingArea
       isSelected={isSelected}
+      focusOn={focusOn}
       onClick={onClickItem}
       ref={divEl}
       col={N}
       height={itemStyle && itemStyle.height}
       style={isSelected ? selectingAreaCssObject : null}
-      className={isSelected ? selectingAreaClassName : null}
-    >
+      className={isSelected ? selectingAreaClassName : null}>
       <ItemContainer style={itemCssObject} className={itemClassName}>
         {itemComponent ? (
           // TODO : index 삭제
@@ -89,6 +91,7 @@ ItemB.propTypes = {
   item: PropTypes.object,
   index: PropTypes.number,
   isSelected: PropTypes.bool,
+  focusOn: PropTypes.bool,
   itemStyle: PropTypes.object,
   onClickItem: PropTypes.func,
   itemCssObject: PropTypes.object,

@@ -13,6 +13,7 @@ const ListUI = props => {
     smoothScroll,
     overScroll,
     showResetButton,
+    focusOn,
     itemStyle,
     listStyle,
     col,
@@ -46,6 +47,7 @@ const ListUI = props => {
           smoothScroll={smoothScroll}
           overScroll={overScroll}
           showResetButton={showResetButton}
+          focusOn={focusOn}
           itemStyle={itemStyle}
           containerCssObject={containerCssObject}
           listCssObject={listCssObject}
@@ -70,6 +72,7 @@ const ListUI = props => {
           smoothScroll={smoothScroll}
           overScroll={overScroll}
           showResetButton={showResetButton}
+          focusOn={focusOn}
           itemStyle={itemStyle}
           listStyle={listStyle}
           col={col}
@@ -107,6 +110,7 @@ ListUI.propTypes = {
   smoothScroll: PropTypes.bool,
   overScroll: PropTypes.bool,
   showResetButton: PropTypes.bool,
+  focusOn: PropTypes.bool,
   itemStyle: PropTypes.exact({
     height: PropTypes.string,
     width: PropTypes.string,

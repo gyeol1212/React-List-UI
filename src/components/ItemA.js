@@ -9,12 +9,18 @@ const ItemContainer = styled.div`
   height: ${props => `${props.height || '18rem'}`};
   box-sizing: border-box;
   display: inline-block;
+  transform: ${props => (props.focusOn ? (props.isSelected ? 'scale(1.1)' : `scale(0.85)`) : null)};
+  transition: ${props => props.focusOn && 'all 0.3s ease'};
+  z-index: ${props => props.focusOn && props.isSelected && 99};
+  position: relative;
+  background-color: ${props => props.focusOn && props.isSelected && 'white'};
 `;
 
 const ItemA = props => {
   const {
     item,
     isSelected,
+    focusOn,
     index,
     onClickItem,
     itemStyle,
@@ -47,7 +53,8 @@ const ItemA = props => {
       onClick={onClickItem}
       style={itemCssObject}
       className={itemClassName}
-    >
+      focusOn={focusOn}
+      isSelected={isSelected}>
       {/* <ItemDetail index={index} /> */}
       {itemComponent ? (
         // TODO : index 삭제
@@ -67,6 +74,7 @@ ItemA.propTypes = {
   item: PropTypes.object,
   index: PropTypes.number,
   isSelected: PropTypes.bool,
+  focusOn: PropTypes.bool,
   itemStyle: PropTypes.object,
   onClickItem: PropTypes.func,
   itemCssObject: PropTypes.object,

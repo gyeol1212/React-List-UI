@@ -61,6 +61,7 @@ function App() {
         smoothScroll={true} // Default : false
         overScroll={false} // Default : false
         showResetButton={true} // Default : false
+        focusOn={true} // Default : false
         ///////////
         // TypeA
         // itemStyle={{

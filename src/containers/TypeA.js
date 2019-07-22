@@ -8,7 +8,7 @@ import useKeyPress from '../Hooks/useKeyPress';
 const TypeContainer = styled.div`
   border: 1px solid black;
   margin: 1.5rem auto;
-  padding: 2rem 0.5rem;
+  padding: 2rem ${props => (props.focusOn ? '1.5rem' : '0.5rem')};
   border-radius: 10px;
   position: relative;
 `;
@@ -16,7 +16,7 @@ const TypeContainer = styled.div`
 const ItemsContainer = styled.div`
   overflow-x: hidden;
   white-space: nowrap;
-  margin: 1.5rem;
+  margin: ${props => props.focusOn || '1.5rem'};
   scroll-behavior: ${props => props.smoothScroll && 'smooth'};
   text-align: left;
 `;
@@ -38,9 +38,8 @@ const SelectingArea = styled.div`
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
-  background-color: rgb(182, 238, 238);
-  transform: ${props =>
-    props.toBeScrollWidth > 0 && `translatex(${props.toBeScrollWidth}px)`};
+  background-color: ${props => props.focusOn || 'rgb(182, 238, 238)'};
+  transform: ${props => props.toBeScrollWidth > 0 && `translatex(${props.toBeScrollWidth}px)`};
   transition: ${props => props.smoothScroll && 'all 0.4s ease'};
 `;
 
@@ -91,6 +90,7 @@ const TypeA = props => {
     smoothScroll,
     overScroll,
     showResetButton,
+    focusOn,
     itemStyle,
     containerCssObject,
     listCssObject,
@@ -190,7 +190,7 @@ const TypeA = props => {
   }, [leftPress, rightPress]);
 
   return (
-    <TypeContainer style={containerCssObject} className={containerClassName}>
+    <TypeContainer style={containerCssObject} className={containerClassName} focusOn={focusOn}>
       <FlexDiv style={headerCssObject} className={headerClassName}>
         <Title>
           TYPE A <span>: Carousel </span>
@@ -199,8 +199,7 @@ const TypeA = props => {
           <ResetButton
             onClick={onClickReset}
             style={resetButtonCssObject}
-            className={resetButtonClassName}
-          >
+            className={resetButtonClassName}>
             처음으로
           </ResetButton>
         )}
@@ -208,9 +207,9 @@ const TypeA = props => {
       <ItemsContainer
         ref={divEl}
         smoothScroll={smoothScroll}
+        focusOn={focusOn}
         style={listCssObject}
-        className={listClassName}
-      >
+        className={listClassName}>
         <EndPoint
           height={itemStyle && itemStyle.height}
           right={isEndPoint === 'right'}
@@ -223,6 +222,7 @@ const TypeA = props => {
           height={itemStyle && itemStyle.height}
           toBeScrollWidth={toBeScrollWidth}
           smoothScroll={smoothScroll}
+          focusOn={focusOn}
           style={selectingAreaCssObject}
           className={selectingAreaClassName}
         />
@@ -234,6 +234,7 @@ const TypeA = props => {
               index={key}
               isSelected={selectedItemNum === key}
               itemStyle={itemStyle}
+              focusOn={focusOn}
               onClickItem={clickDisable ? null : () => onClickItem(key)}
               itemCssObject={itemCssObject}
               itemClassName={itemClassName}
@@ -253,6 +254,7 @@ TypeA.propTypes = {
   smoothScroll: PropTypes.bool,
   overScroll: PropTypes.bool,
   showResetButton: PropTypes.bool,
+  focusOn: PropTypes.bool,
   itemStyle: PropTypes.shape({
     height: PropTypes.string,
     width: PropTypes.string,
