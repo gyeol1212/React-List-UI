@@ -126,7 +126,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 #### _이 Component의 구조는 아래 이미지를 참고하세요._
 
-![ComponentStructure](./example/structure.jpeg)
+![ComponentStructure](https://github.com/gyeol1212/React-List-UI/raw/master/example/structure.jpeg)
 
 <hr />
 
