@@ -8,23 +8,23 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 #### _Type A_
 
-![TypeAImage](./example/typeA.gif)
+![TypeAImage](https://github.com/gyeol1212/React-List-UI/raw/master/example/typeA.gif)
 
 #### _Type B_
 
-![TypeBImage](./example/typeB.gif)
+![TypeBImage](https://github.com/gyeol1212/React-List-UI/raw/master/example/typeB.gif)
 
 #### _`smoothScroll=true`_
 
-![smoothScroll](./example/smoothScroll.gif)
+![smoothScroll](https://github.com/gyeol1212/React-List-UI/raw/master/example/smoothScroll.gif)
 
 #### _`focusOn=true && smoothScroll=true`_
 
-![focusOn](./example/focusOn.gif)
+![focusOn](https://github.com/gyeol1212/React-List-UI/raw/master/example/focusOn.gif)
 
 #### _`overScroll=true`_
 
-![overScroll](./example/overScroll.gif)
+![overScroll](https://github.com/gyeol1212/React-List-UI/raw/master/example/overScroll.gif)
 
 <hr />
 

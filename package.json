@@ -1,6 +1,6 @@
 {
   "name": "react-list-ui",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Components that allow you to selectively operate the List UI through keyboard input on the big screen",
   "main": "build/index.js",
   "license": "MIT",
@@ -13,9 +13,6 @@
   },
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
     "styled-components": "^5.0.0-beta.5"
   },
   "scripts": {
@@ -53,7 +50,10 @@
     "enzyme-to-json": "^3.3.5",
     "react-test-renderer": "^16.8.6",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.5"
+    "webpack-cli": "^3.3.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
   },
   "jest": {
     "snapshotSerializers": [

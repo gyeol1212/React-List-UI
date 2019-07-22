@@ -22,7 +22,7 @@ exports[`ListUI match snapshot 1`] = `
     TYPE B
   </div>
   <div
-    className="sc-AykKH gpUORi"
+    className="sc-AykKH cIIhGy"
   >
     <div
       className="sc-fzXfLQ bnkEcz"
@@ -43,16 +43,16 @@ exports[`ListUI match snapshot 1`] = `
       </div>
     </div>
     <div
-      className="sc-AykKI jRzXmZ"
+      className="sc-AykKI faQNNM"
     >
       <div
         className="sc-fzXfLP hqnvde"
       />
       <div
-        className="sc-AykKK feOmNh"
+        className="sc-AykKK qknuu"
       />
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG kdrvVp"
         onClick={[Function]}
       >
         <div
@@ -72,7 +72,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -92,7 +92,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -112,7 +112,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -132,7 +132,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -152,7 +152,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -172,7 +172,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -192,7 +192,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -212,7 +212,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
@@ -232,7 +232,7 @@ exports[`ListUI match snapshot 1`] = `
         </div>
       </div>
       <div
-        className="sc-AykKG fmSQbP"
+        className="sc-AykKG fHinRh"
         onClick={[Function]}
       >
         <div
