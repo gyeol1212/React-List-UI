@@ -28,7 +28,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 #### _`overScroll=false`_
 
-![endPoint](https://github.com/gyeol1212/React-List-UI/raw/master/example/endPoint.gif)
+![endPoint](./example/endPoint.gif)
 
 <hr />
 
