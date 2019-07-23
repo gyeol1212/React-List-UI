@@ -32,7 +32,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 <hr />
 
-## how to Use
+## How to Use
 
 1.  설치 방법
 
@@ -57,9 +57,17 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
     export default App;
     ```
 
-    <hr />
+<hr />
 
-## props
+## DEMO
+
+#### _다양한 props를 직접 넣으면서 Test해보세요_
+
+[![Edit react-list-ui Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-list-ui-example-xkqrv?fontsize=14)
+
+<hr />
+
+## Props
 
 | Props             | Description                                                                                                                                 | Type                                      | Default                               | Example                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------- | :------------------------------------ | :------------------------------------------------------------------------------------------------------- |
@@ -71,7 +79,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 | `clickDisable`    | 마우스 클릭을 통한 선택 영역 이동 허용 여부를 결정합니다.                                                                                   | bool                                      | false                                 | `clickDisable={ true }`                                                                                  |
 | `smoothScroll`    | 부드러운 스크롤 이동 여부를 결정합니다.                                                                                                     | bool                                      | true                                  | `smoothScroll={ false }`                                                                                 |
 | `overScroll`      | 범위를 벗어나는 스크롤일 경우, 처음으로 돌아갈지 여부를 결정합니다. <br> False로 설정할 경우, 스크롤 영역이 흔들려 endPoint임을 알려줍니다. | bool                                      | false                                 | `overScroll={ true }`                                                                                    |
-| `focusOn`         | 선택 영역을 배경색 대신 확대 여부로 강조할 지 결정합니다.                                                                                   | bool                                      | false                                 | `focusOn={true}`                                                                                         |
+| `focusOn`         | 선택 영역을 배경색 대신 확대 여부로 강조할 지 결정합니다.                                                                                   | bool                                      | false                                 | `focusOn={ true }`                                                                                       |
 | `showResetButton` | Reset Button 표시 여부를 결정합니다.                                                                                                        | bool                                      | false                                 | `showResetButton={ true }`                                                                               |
 |                   |                                                                                                                                             |                                           |                                       |
 | **Type A**        | _props.type === 'A' 의 경우 사용 가능한 props들입니다._                                                                                     |                                           |
@@ -79,7 +87,7 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 |                   |                                                                                                                                             |                                           |                                       |
 | **Type B**        | _props.type === 'B' 의 경우 사용 가능한 props들입니다._                                                                                     |
 | `itemStyle`       | List 내부의 item들의 사이즈를 지정합니다.<br> Height를 지정할 수 있습니다.                                                                  | Object({ height: string })                | {{ height: '18rem' }}                 | `itemStyle={{ height: '300px' }}`                                                                        |
-| `col`             | List column의 item 개수를 지정합니다.                                                                                                       | number                                    | 4                                     | `col={5}`                                                                                                |
+| `col`             | List column의 item 개수를 지정합니다.                                                                                                       | number                                    | 4                                     | `col={ 5 }`                                                                                              |
 
 ### Css Customizing props
 
@@ -87,12 +95,12 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 
 | Props                    | Description                     | type   |
 | :----------------------- | :------------------------------ | :----- |
-| `containerCssObjcet`     | container Css를 변경합니다.     | Objcet |
-| `listCssObjcet`          | list Css를 변경합니다.          | Objcet |
-| `itemCssObjcet`          | item Css를 변경합니다.          | Objcet |
-| `selectingAreaCssObjcet` | selectingArea Css를 변경합니다. | Objcet |
-| `headerCssObjcet`        | header Css를 변경합니다.        | Objcet |
-| `resetButtonCssObjcet`   | resetButton Css를 변경합니다.   | Objcet |
+| `containerCssObject`     | container Css를 변경합니다.     | Object |
+| `listCssObject`          | list Css를 변경합니다.          | Object |
+| `itemCssObject`          | item Css를 변경합니다.          | Object |
+| `selectingAreaCssObject` | selectingArea Css를 변경합니다. | Object |
+| `headerCssObject`        | header Css를 변경합니다.        | Object |
+| `resetButtonCssObject`   | resetButton Css를 변경합니다.   | Object |
 
 ```javascript
 // CSS customizing props example
@@ -129,14 +137,6 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 #### _이 Component의 구조는 아래 이미지를 참고하세요._
 
 ![ComponentStructure](https://github.com/gyeol1212/React-List-UI/raw/master/example/structure.jpeg)
-
-<hr />
-
-## DEMO
-
-#### _다양한 props를 직접 넣으면서 Test해보세요_
-
-[![Edit react-list-ui Example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-list-ui-example-xkqrv?fontsize=14)
 
 <hr />
 
