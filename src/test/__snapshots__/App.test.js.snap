@@ -22,13 +22,13 @@ exports[`ListUI match snapshot 1`] = `
     TYPE B
   </div>
   <div
-    className="sc-AykKH cIIhGy"
+    className="sc-AykKJ dCcmmA"
   >
     <div
-      className="sc-fzXfLQ bnkEcz"
+      className="sc-fzXfLR knHWtM"
     >
       <div
-        className="sc-AykKJ cuaOwf"
+        className="sc-fzXfLO keSmoK"
       >
         TYPE A 
         <span>
@@ -36,20 +36,17 @@ exports[`ListUI match snapshot 1`] = `
         </span>
       </div>
       <div
-        className="sc-fzXfLO dmwtOU"
+        className="sc-fzXfLQ brPJbC"
         onClick={[Function]}
       >
         처음으로
       </div>
     </div>
     <div
-      className="sc-AykKI faQNNM"
+      className="sc-AykKH sc-AykKK isWioo"
     >
       <div
-        className="sc-fzXfLP hqnvde"
-      />
-      <div
-        className="sc-AykKK qknuu"
+        className="sc-fzXfLP hFcKed"
       />
       <div
         className="sc-AykKG kdrvVp"

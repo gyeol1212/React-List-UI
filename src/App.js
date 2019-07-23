@@ -82,7 +82,6 @@ function App() {
         // selectingAreaCssObject={{}}
         // headerCssObject={{}}
         // resetButtonCssObject={{}}
-        // endPointCssObject={{}}
 
         // className Customizing
         // containerClassName=''
@@ -91,7 +90,6 @@ function App() {
         // selectingAreaClassName=''
         // headerClassName=''
         // resetButtonClassName=''
-        // endPointClassName=''
       />
     </Container>
   );

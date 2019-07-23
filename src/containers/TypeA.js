@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ItemA from '../components/ItemA';
 import useKeyPress from '../Hooks/useKeyPress';
+import { ShakeXDiv } from '../components/utilComponents';
 
 const TypeContainer = styled.div`
   border: 1px solid black;
@@ -13,7 +14,7 @@ const TypeContainer = styled.div`
   position: relative;
 `;
 
-const ItemsContainer = styled.div`
+const ItemsContainer = styled(ShakeXDiv)`
   overflow-x: hidden;
   white-space: nowrap;
   margin: ${props => props.focusOn || '1.5rem'};
@@ -53,31 +54,6 @@ const ResetButton = styled.div`
   cursor: pointer;
 `;
 
-const EndPoint = styled.div`
-  width: 1.5rem;
-  height: ${props => `${props.height || '18rem'}`};
-  box-sizing: border-box;
-  display: inline-block;
-  position: absolute;
-  background-color: lightgray;
-  opacity: 0;
-  left: ${props => !props.right && 0};
-  right: ${props => props.right && 0};
-  z-index: 1;
-  animation: ${props => props.isEndPoint && 'blink 0.5s linear'};
-  @keyframes blink {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-`;
-
 const FlexDiv = styled.div`
   display: flex;
 `;
@@ -98,14 +74,12 @@ const TypeA = props => {
     selectingAreaCssObject,
     headerCssObject,
     resetButtonCssObject,
-    endPointCssObject,
     containerClassName,
     listClassName,
     itemClassName,
     selectingAreaClassName,
     headerClassName,
     resetButtonClassName,
-    endPointClassName,
   } = props;
 
   const divEl = useRef(null);
@@ -148,11 +122,11 @@ const TypeA = props => {
   };
 
   // 끝부분 닿았을 때 여부
-  const onEndPoint = p => {
-    setIsEndPoint(p);
+  const onEndPoint = () => {
+    setIsEndPoint(true);
     setTimeout(() => {
       setIsEndPoint(false);
-    }, 500);
+    }, 200);
   };
 
   const leftPress = useKeyPress(37);
@@ -167,7 +141,7 @@ const TypeA = props => {
           setSelectedItemNum(0);
         } else {
           // 오른쪽 끝에 닿았을 때,
-          onEndPoint('right');
+          onEndPoint();
         }
       }
     } else if (leftPress) {
@@ -178,7 +152,7 @@ const TypeA = props => {
           setSelectedItemNum(itemList.length - 1);
         } else {
           // 왼쪽 끝에 닿았을 때,
-          onEndPoint('left');
+          onEndPoint();
         }
       }
     }
@@ -209,14 +183,8 @@ const TypeA = props => {
         smoothScroll={smoothScroll}
         focusOn={focusOn}
         style={listCssObject}
-        className={listClassName}>
-        <EndPoint
-          height={itemStyle && itemStyle.height}
-          right={isEndPoint === 'right'}
-          isEndPoint={isEndPoint}
-          style={endPointCssObject}
-          className={endPointClassName}
-        />
+        className={listClassName}
+        isEndPoint={isEndPoint}>
         <SelectingArea
           width={itemStyle && itemStyle.width}
           height={itemStyle && itemStyle.height}
@@ -266,14 +234,12 @@ TypeA.propTypes = {
   selectingAreaCssObject: PropTypes.object,
   headerCssObject: PropTypes.object,
   resetButtonCssObject: PropTypes.object,
-  endPointCssObject: PropTypes.object,
   containerClassName: PropTypes.string,
   listClassName: PropTypes.string,
   itemClassName: PropTypes.string,
   selectingAreaClassName: PropTypes.string,
   headerClassName: PropTypes.string,
   resetButtonClassName: PropTypes.string,
-  endPointClassName: PropTypes.string,
 };
 
 export default TypeA;
