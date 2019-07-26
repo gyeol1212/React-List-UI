@@ -2,10 +2,6 @@
 
 React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선택적으로 동작할 수 있는 컴포넌트 입니다.
 
-> **현재 개발 중인 프로젝트 입니다. 이하 내용은 언제든지 바뀔 수 있습니다.**
-
-> **This project is currently under development. The above may be changed at any time.**
-
 #### _Type A_
 
 ![TypeAImage](https://github.com/gyeol1212/React-List-UI/raw/master/example/typeA.gif)
@@ -139,5 +135,3 @@ React-List-UI 는 빅스크린에서 키보드 입력을 통해 List UI를 선�
 ![ComponentStructure](https://github.com/gyeol1212/React-List-UI/raw/master/example/structure.jpeg)
 
 <hr />
-
-### 추후 추가
